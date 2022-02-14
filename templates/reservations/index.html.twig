@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %} - Reservations{% endblock %}
+
+{% block body %}
+
+<section class="reservation" id="reservation">
+    <h2>RESERVATION</h2>
+        <div class="containerContact">
+            <div class="divcontact">
+                <a href="{{ path('home') }}">
+                <img class="logocontact" src="logo/logo.png" alt="logo du site">
+                </a>
+            </div>
+
+            <div class="formulaire">
+                <form method="post" action="reservation.php" id="form">
+
+                <div class="tabcontact">
+                    <label for="date">Date de la prestation:</label>
+                    <input type="date" class="tabform" name="date" placeholder="Date de la prestation souhaitée*">
+                
+                    <label for="prestation"> Selectionnez votre prestation</label>
+                    <select name="prestation" class="tabform" id="prest-select">
+                    
+                    <option value="basic">Basic 299€</option>
+                    <option value="medium">Medium 399€</option>
+                    <option value="luxe">Luxe 499€</option>
+                    </select>
+                    <input type="text" class="tabform" name="nom" placeholder="Votre Nom*">
+                    <input type="text" class="tabform" name="prenom" placeholder="Votre Prénom*">
+                    <input type="email" class="tabform" name="email" placeholder="Votre Email*">
+                    <input type="telephone" class="tabform" name="email" placeholder="Votre numéro de telephone*">
+                    <textarea name="comment" class="tabform" cols="80" rows="10" placeholder="Votre message..."></textarea>
+                </div>
+                <div class="btnform">
+                    <input type="reset" class="reset" value="EFFACER">
+                    <input type="submit" class="submit" value="RESERVER">
+                </div>
+            </div>
+        </div>
+    </form>
+
+    </div>
+    </div>
+  </section>
+{% endblock %}

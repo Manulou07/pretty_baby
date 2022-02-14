@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+
+*{
+font-family: 'Oswald', sans-serif;
+}
+
+.fleche{
+    width: 20px;
+    height: 20px;
+    position:fixed;
+    display:flex;
+    z-index: 1;
+
+
+}
+
+.nav{
+    background-color:#FAE6De ;
+    width:70%;
+    margin:auto;
+    display: flex;
+    justify-content:space-around;
+    align-items:center;
+     
+    height: auto;
+    padding-top:10px;
+         
+}
+
+
+
+.logo{
+    width: 150px;
+    height: 100px;
+   
+}
+
+
+.btn{
+  
+    border: none;
+    opacity: 0.6;
+    letter-spacing: 3px;
+    transition: 0.1s;
+   
+}
+
+.btn:hover {
+opacity:1 ;
+
+}
+.imgCaroussel{
+    
+    width: 70%;
+    margin: auto;
+    
+    height:60%;
+}
+.carousel-inner{
+background-color:#FAE6DE ;
+}
+
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+.body{
+    background-color: #FAE6DE;
+    width:100%;
+    margin:auto;
+}
+
+
+.presentation{
+    background-color: #FAE6DE;
+   width: 70%;
+   margin: auto;
+   height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  
+    
+}
+
+.divpres1{
+    
+    width: 80%;
+    margin: auto;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
+
+.services{
+    background-color:#F6EFEF;
+    height: 700px;
+   
+}
+
+.containerservice{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    height: 700px;
+    
+    }
+
+.containerservice .divservice{
+    background-color: #FAE6DE;
+    display: block;
+    padding: 20px;
+    margin: 20px;
+   
+    
+    }
+
+.containerservice .divservice h2,p{
+display: flex;
+justify-content: center;
+flex-direction: column;
+}
+
+.realisations {
+
+    background-color: #FAE6DE;
+    width: 100%;
+    margin: auto;
+    padding-bottom: 1.5em;
+
+  }
+
+h2{
+    padding:1em;
+display:flex;
+justify-content: center;
+
+}
+
+#offres{
+    background-color: #FAE6DE;
+
+}
+
+
+.container-realisations {
+    
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5em;
+
+  }
+
+#divrealisation {
+    background-color: #F8D9CC;
+  }
+
+#cardimg {
+    width: 100%;
+    height:400px;
+}
+
+.card h3{
+    font-size: 100px;
+    
+}
+
+
+.containeroffres{
+    padding:1.5em;
+    
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+     
+
+}
+.divoffres{
+    background-color: #faccb7;
+    height:597px;
+    width: 421px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   flex-direction: column;
+}
+.divoffres1{
+    background-color: #f7b69b;
+    height:640px;
+    width: 421px;
+ 
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+   
+}
+
+.btnoffres{
+    background-color:#FAC37D;
+    border:1PX;
+    border-radius:5px;
+    color:#F3653F;
+    padding:5px 15px 5px 15px;
+    box-shadow: 5px 5px 5px black;
+    text-decoration: none;
+
+}
+
+.btnoffres:hover {
+ 
+    background-color:#F3653F;
+    color:#FAC37D;
+    box-shadow: 10px 10px 10px black;
+    }
+
+.reset{
+background-color:#FAC37D;
+border-radius:5px;
+color:#F3653F;
+padding:5px 25px 5px 25px;
+box-shadow: 5px 5px 5px black;
+}
+
+.reset:hover {
+
+background-color:#F3653F;
+color:#FAC37D;
+box-shadow: 10px 10px 10px black;
+}
+
+.submit{
+background-color:#FAC37D;
+border-radius:5px;
+color:#F3653F;
+padding:5px 25px 5px 25px;
+box-shadow: 5px 5px 5px black;
+
+}
+.submit:hover {
+
+    background-color:#F3653F;
+    color:#FAC37D;
+    box-shadow: 10px 10px 10px black;
+    }
+        
+.containerContact {
+    display :flex;
+    justify-content:space-around;
+    padding:1.5em;
+
+    }
+
+    .contact{
+        background-color: #FAE6DE;
+       }
+
+    .tabcontact {
+        padding:5px;
+        display:flex;
+        flex-direction: column;
+       }
+   
+    
+    .tabform{
+    padding: 1em;
+    margin:5px;
+    border-radius: 10px;
+}
+
+.btnform{
+    display: flex;
+    justify-content: space-around;
+    padding:10px;
+}
+
+.footer{
+    background-color:#F6EFEF ;
+    padding:1em;
+    display:flex;
+    justify-content: space-around;
+}
+.reseaux a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer a{
+
+text-decoration: none;
+color:black;
+margin: 1px;
+}
+
+.mail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+.apropos{
+ 
+    display:flex; 
+    justify-content:center;
+    flex-direction: column;
+    
+}
+
+
+.reservation{
+    background-color: #FAE6DE;
+    width: 80%;
+    margin: auto;
+   }
