@@ -3,6 +3,8 @@
 
 *{
 font-family: 'Oswald', sans-serif;
+margin: 0;
+padding:0;
 }
 
 .fleche{
@@ -17,14 +19,10 @@ font-family: 'Oswald', sans-serif;
 
 .nav{
     background-color:#FAE6De ;
-    width:70%;
-    margin:auto;
     display: flex;
     justify-content:space-around;
     align-items:center;
-     
-    height: auto;
-    padding-top:10px;
+    padding-top:15px;
          
 }
 
@@ -54,12 +52,13 @@ opacity:1 ;
     
     width: 70%;
     margin: auto;
-    
-    height:60%;
+   
+    /* aspect-ratio: 16/9; */
+    object-fit: contain;
 }
-.carousel-inner{
+/* .carousel-inner{
 background-color:#FAE6DE ;
-}
+} */
 
 
 a {
@@ -68,33 +67,27 @@ a {
 }
 
 
-.body{
-    background-color: #FAE6DE;
-    width:100%;
-    margin:auto;
-}
-
 
 .presentation{
     background-color: #FAE6DE;
-   width: 70%;
-   margin: auto;
-   height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  
-    
+    padding: 15px 0px 25px 0px;
+      
 }
 
-.divpres1{
+#divpres{
     
-    width: 80%;
-    margin: auto;
     display:flex;
     align-items: center;
-    flex-direction: column;
+ 
+}
+
+#carouselimg{
+    width: 80%;
+    margin: auto;
+
+    aspect-ratio: 4/3;
+   
+
 }
 
 
