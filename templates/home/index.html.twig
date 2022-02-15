@@ -37,7 +37,63 @@
             </div>
         </div>
     </section>
+ 
+    <section class="realisations">
+        <h2>NOS DERNIERES REALISATIONS</h2>
+     
+        <div class="row" >
+          {% for realisation in realisations %}
+              {% if loop.index <= 3 %} 
+                  <div class="col-4 p-3">
+                      <div class="card" >
+                          <img src="{{ ('images/realisations/' ~ realisation.img) }}" class="card-img-top" alt="photo principale {{ realisation.titre }}" id="cardimg">
+                          <div class="card-body" id="divrealisation">
+                              <h5 class="card-title">{{ realisation.titre }}</h5>
+                              <p class="card-text">{{ realisation.description|u.truncate(150, '...', false) }}</p>
+                          </div>
+                          
+                          <div class="card-body text-center" id="divrealisation">
+                              <a href="{{ path('photo_all', {'id': realisation.id}) }}" class="btnoffres">Voir plus de photos</a>
+                          </div>
+                      </div>
+                  </div>
+              {% endif %}  
+          {% endfor %}
+        </div>
+        <div class="row" >
+            <div class="col-12 m-2 text-center">
+              <a href="{{ path('realisations') }}" class="btnoffres">Voir toutes nos réalisations</a>
+            </div>
+        </div>
+     
+    </section>
+ 
+    <section class="card" id="offres">
+        <h2>NOS OFFRES</h2>
 
+        <div class="containeroffres">
+            <div class="divoffres">
+                <h2>BASIQUE</h2>
+                <h3>299€</h3>
+                <p>Ce forfait comprend :</p>
+                <a class="btnoffres" href="{{ path('reservations', {'id': 'basic'}) }}">RESERVEZ</a>
+            </div>
+            <div class="divoffres1">
+                <h2>MEDIUM</h2>
+                <h3>399€</h3>
+                <p>Ce forfait comprend :</p>
+                <a class="btnoffres" href="{{ path('reservations', {'id': 'medium'}) }}">RESERVEZ</a>
+            </div>
+            <div class="divoffres">
+                <h2>LUXE</h2>
+                <h3>499€</h3>
+                <p>Ce forfait comprend :</p>
+                <a class="btnoffres" href="{{ path('reservations', {'id': 'luxe'}) }}" >RESERVEZ</a>
+            </div>
+        </div>
+    </section>
+
+    
     <section class="services">
         <div class="containerservice">
             <div class="divservice">
@@ -87,67 +143,6 @@
                 porttitor, orci nec nonummy molestie, enim est eleifend mi, non
                 fermentum diam nisl sit amet erat.
                 </p>
-            </div>
-        </div>
-    </section>
- 
-    <section class="realisations" id="realisations">
-        <h2>NOS DERNIERES REALISATIONS</h2>
-     
-        <div class="row" >
-          {% for realisation in realisations %}
-              {% if loop.index <= 3 %} 
-                  <div class="col-4 p-3">
-                      <div class="card" >
-                          <img src="{{ ('images/realisations/' ~ realisation.img) }}" class="card-img-top" alt="photo principale {{ realisation.titre }}" id="cardimg">
-                          <div class="card-body" id="divrealisation">
-                              <h5 class="card-title">{{ realisation.titre }}</h5>
-                              <p class="card-text">{{ realisation.description|u.truncate(150, '...', false) }}</p>
-                          </div>
-                          
-                          <div class="card-body text-center" id="divrealisation">
-                              <a href="{{ path('photo_all', {'id': realisation.id}) }}" class="btnoffres">Voir plus de photos</a>
-                          </div>
-                      </div>
-                  </div>
-              {% endif %} 
-          {% endfor %}
-        </div>
-        <div class="row" >
-        
-          <div class="col-12 m-2 text-center">
-              <a href="{{ path('realisations') }}" class="btnoffres">Voir toutes nos réalisations</a>
-             
-          </div>
-          
-        </div>
-     
-  
-        
-  
-    </section>
- 
-    <section class="card" id="offres">
-        <h2>NOS OFFRES</h2>
-
-        <div class="containeroffres">
-            <div class="divoffres">
-                <h2>BASIQUE</h2>
-                <h3>299€</h3>
-                <p>Ce forfait comprend :</p>
-                <a class="btnoffres" href="{{ path('reservations') }}">RESERVEZ</a>
-            </div>
-            <div class="divoffres1">
-                <h2>MEDIUM</h2>
-                <h3>399€</h3>
-                <p>Ce forfait comprend :</p>
-                <a class="btnoffres" href="{{ path('reservations') }}">RESERVEZ</a>
-            </div>
-            <div class="divoffres">
-                <h2>LUXE</h2>
-                <h3>499€</h3>
-                <p>Ce forfait comprend :</p>
-                <a class="btnoffres" href="{{ path('reservations')}}" >RESERVEZ</a>
             </div>
         </div>
     </section>

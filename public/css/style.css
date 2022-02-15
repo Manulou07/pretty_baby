@@ -47,15 +47,10 @@ opacity:1 ;
 
 }
 .imgCaroussel{
-    
     width: 70%;
     margin: auto;
-   
-    /* aspect-ratio: 16/9; */
     object-fit: contain;
 }
-
-
 
 a {
     text-decoration: none;
@@ -114,13 +109,11 @@ flex-direction: column;
 }
 
 .realisations {
-
-    background-color: #FAE6DE;
+    background-color: #F6EFEF;
     width: 100%;
     margin: auto;
     padding-bottom: 1.5em;
-
-  }
+}
 
 h2{
     padding:1em;
@@ -130,8 +123,7 @@ justify-content: center;
 }
 
 #offres{
-    background-color: #FAE6DE;
-
+    background-color:#FAE6De ;
 }
 
 
@@ -162,15 +154,15 @@ justify-content: center;
 
 .containeroffres{
     padding:1.5em;
-    
+    background-color:#FAE6De ;
     width: 100%;
     margin: auto;
     display: flex;
     justify-content: center;
     align-items:flex-end;
      
-
 }
+
 .divoffres{
     background-color: #faccb7;
     height:597px;
@@ -271,7 +263,7 @@ box-shadow: 5px 5px 5px black;
 }
 
 .footer{
-    background-color:#F6EFEF ;
+    background-color:#FAE6De ;
     padding:1em;
     
 }
@@ -289,7 +281,6 @@ margin: 1px;
     display:flex; 
     justify-content:center;
     flex-direction: column;
-    
 } 
 
 

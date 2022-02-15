@@ -27,6 +27,9 @@ class Realisations
     #[ORM\OneToMany(mappedBy: 'relation', targetEntity: Images::class)]
     private $images;
 
+    #[ORM\ManyToOne(targetEntity: user::class, inversedBy: 'realisations')]
+    private $fk_id_user;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
@@ -99,6 +102,18 @@ class Realisations
                 $image->setRelation(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFkIdUser(): ?user
+    {
+        return $this->fk_id_user;
+    }
+
+    public function setFkIdUser(?user $fk_id_user): self
+    {
+        $this->fk_id_user = $fk_id_user;
 
         return $this;
     }

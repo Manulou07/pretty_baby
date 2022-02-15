@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -32,6 +34,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'integer')]
     private $telephone;
+
+    #[ORM\OneToMany(mappedBy: 'fk_id_user', targetEntity: Reservations::class)]
+    private $reservations;
+
+    #[ORM\OneToMany(mappedBy: 'fk_id_user', targetEntity: Realisations::class)]
+    private $realisations;
+
+    public function __construct()
+    {
+        $this->reservations = new ArrayCollection();
+        $this->realisations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -154,6 +168,66 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setTelephone(int $telephone): self
     {
         $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Reservations[]
+     */
+    public function getReservations(): Collection
+    {
+        return $this->reservations;
+    }
+
+    public function addReservation(Reservations $reservation): self
+    {
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations[] = $reservation;
+            $reservation->setFkIdUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservation(Reservations $reservation): self
+    {
+        if ($this->reservations->removeElement($reservation)) {
+            // set the owning side to null (unless already changed)
+            if ($reservation->getFkIdUser() === $this) {
+                $reservation->setFkIdUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Realisations[]
+     */
+    public function getRealisations(): Collection
+    {
+        return $this->realisations;
+    }
+
+    public function addRealisation(Realisations $realisation): self
+    {
+        if (!$this->realisations->contains($realisation)) {
+            $this->realisations[] = $realisation;
+            $realisation->setFkIdUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRealisation(Realisations $realisation): self
+    {
+        if ($this->realisations->removeElement($realisation)) {
+            // set the owning side to null (unless already changed)
+            if ($realisation->getFkIdUser() === $this) {
+                $realisation->setFkIdUser(null);
+            }
+        }
 
         return $this;
     }
