@@ -25,27 +25,22 @@ padding:0;
          
 }
 
-
-
 .logo{
     width: 150px;
     height: 100px;
 }
 
-
 .btn{
-  
     border: none;
     opacity: 0.6;
     letter-spacing: 3px;
     transition: 0.1s;
-   
 }
 
 .btn:hover {
 opacity:1 ;
-
 }
+
 .imgCaroussel{
     width: 70%;
     margin: auto;
@@ -56,8 +51,9 @@ a {
     text-decoration: none;
     color: black;
 }
-
-
+.presentation p{
+    font-size:20px;
+}
 
 .presentation{
     background-color: #FAE6DE;
@@ -66,10 +62,8 @@ a {
 }
 
 #divpres{
-    
     display:flex;
     align-items: center;
- 
 }
 
 #carouselimg{
@@ -78,34 +72,19 @@ a {
     aspect-ratio: 4/3;
 }
 
+#icons{
+    width: 150px;
+    height: 150px;
+    margin: auto;
 
+}
 .services{
-    background-color:#F6EFEF;
-    height: 700px;
-   
+    background-color:#FAE6DE;
+    height: 850px;
 }
 
-.containerservice{
-    display: flex;
-    width: 80%;
-    margin: auto;
-    height: 700px;
-    
-    }
-
-.containerservice .divservice{
-    background-color: #FAE6DE;
-    display: block;
-    padding: 20px;
-    margin: 20px;
-   
-    
-    }
-
-.containerservice .divservice h2,p{
-display: flex;
-justify-content: center;
-flex-direction: column;
+#divservice{
+    background-color: #F6EFEF;
 }
 
 .realisations {
@@ -123,19 +102,9 @@ justify-content: center;
 }
 
 #offres{
-    background-color:#FAE6De ;
+    background-color: #F6EFEF;
 }
 
-
-.container-realisations {
-    
-    width: 50%;
-    margin: auto;
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 1.5em;
-
-  }
 
 #divrealisation {
     background-color: #F8D9CC;
@@ -151,10 +120,9 @@ justify-content: center;
     
 }
 
-
 .containeroffres{
     padding:1.5em;
-    background-color:#FAE6De ;
+    background-color:#F6EFEF ;
     width: 100%;
     margin: auto;
     display: flex;
