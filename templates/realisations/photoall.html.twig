@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+    <section class="realisations" id="realisations">
+      <h2>PHOTO BABY SHOWER</h2>
+   
+      <div class="row" >
+        {% for image in images %}
+           
+                <div class="col-4 p-3">
+                    
+                        <img src="{{ ('../../images/realisations/' ~ image.nameimg) }}" alt="photo realisations" id="cardimg" >
+                        
+                </div>
+            
+        {% endfor %}
+      </div>
+     
+    </section>
+{% endblock %}

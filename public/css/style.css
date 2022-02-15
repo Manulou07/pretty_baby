@@ -8,13 +8,12 @@ padding:0;
 }
 
 .fleche{
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     position:fixed;
-    display:flex;
+    bottom: 55px;
+    right: 15px;
     z-index: 1;
-
-
 }
 
 .nav{
@@ -31,7 +30,6 @@ padding:0;
 .logo{
     width: 150px;
     height: 100px;
-   
 }
 
 
@@ -56,9 +54,7 @@ opacity:1 ;
     /* aspect-ratio: 16/9; */
     object-fit: contain;
 }
-/* .carousel-inner{
-background-color:#FAE6DE ;
-} */
+
 
 
 a {
@@ -84,13 +80,8 @@ a {
 #carouselimg{
     width: 80%;
     margin: auto;
-
     aspect-ratio: 4/3;
-   
-
 }
-
-
 
 
 .services{
@@ -282,14 +273,9 @@ box-shadow: 5px 5px 5px black;
 .footer{
     background-color:#F6EFEF ;
     padding:1em;
-    display:flex;
-    justify-content: space-around;
+    
 }
-.reseaux a{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 .footer a{
 
@@ -298,23 +284,17 @@ color:black;
 margin: 1px;
 }
 
-.mail{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-}
-.apropos{
+#apropos{
  
     display:flex; 
     justify-content:center;
     flex-direction: column;
     
-}
+} 
 
 
 .reservation{
     background-color: #FAE6DE;
-    width: 80%;
+    width: 100%;
     margin: auto;
    }
