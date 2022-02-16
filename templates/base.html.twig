@@ -19,19 +19,23 @@
 
 
     <body>
-        <header id="header">
-            <nav class="nav">
-                <a class="btn" href="{{ path('home') }}#realisations">NOS REALISATIONS</a>
-                <a class="btn" href="{{ path('home') }}#offres">NOS OFFRES</a>
-              <a href="{{ path('home') }}"><img class="logo" src="../../logo/logo.png" alt="logo du site"></a>
-              <a class="btn" href="{{ path('home') }}#contact">NOUS CONTACTER</a>
-              <a class="btn" href="{{ path('reservations') }}">RESERVEZ</a>
-            </nav>
+        <header class="container-fluid" id="header">
+            <div class="row">
+                <nav class="nav">
+                    <a class="btn" href="{{ path('home') }}#realisations">NOS REALISATIONS</a>
+                    <a class="btn" href="{{ path('home') }}#offres">NOS OFFRES</a>
+                    <a href="{{ path('home') }}"><img class="logo" src="../../logo/logo.png" alt="logo du site"></a>
+                    <a class="btn" href="{{ path('home') }}#contact">NOUS CONTACTER</a>
+                    <a class="btn" href="{{ path('reservations') }}">RESERVEZ</a>
+                </nav>
+            </div>
         </header>
 
-        {% block body %}{% endblock %}
+        <main class="container-fluid">
+            {% block body %}{% endblock %}
+        </main>
 
-        <footer class="footer">
+        <footer class="container-fluid footer">
             <div class="row">
 
                 <div class="col-4" id= "apropos">

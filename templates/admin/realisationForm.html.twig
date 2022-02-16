@@ -1,0 +1,38 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %} - realisations{% endblock %}
+
+{% block body %}
+
+    {{ form_start(realisationForm) }}
+
+        <div class="row">
+            <div class="col-5">
+                {{ form_row(realisationForm.titre, {'label': 'Titre'}) }}
+            </div>
+            <div class="col-7">
+                {{ form_row(realisationForm.img, {'label': 'Photo principale'}) }}
+            </div>
+              
+        </div>
+        <div class="row">
+            <div class="col-12">
+                {{ form_row(realisationForm.description, {'label': 'Description'}) }}
+            </div>
+        </div>
+       
+        <div class="row">
+            <div class="col-6">
+                {{ form_row(realisationForm.img2, {'label': 'Photo Supplémentaire'}) }}
+            </div>
+           
+        </div>
+
+        <div class="col-12 d-flex justify-content-end">
+            <a href="{{ path('admin_realisations_index') }}" class="btn btn-danger m-3">Annuler</a>
+            <button class="btn btn-success m-3">Créer</button>
+        </div>
+
+    {{ form_end(realisationForm) }}
+
+{% endblock %}

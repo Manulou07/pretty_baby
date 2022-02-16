@@ -4,6 +4,12 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
+    list-style-type:circle;
+}
+
+:root {
+    --color-white: #FFFFFF;
+    --color-light-grey: #BBBBBB;
 }
 
 
@@ -15,6 +21,7 @@ nav {
 
     nav a {
         color: var(--color-white);
+       
     }
 
         nav a:hover {
@@ -24,7 +31,8 @@ nav {
 /* **************************************** TABLE **************************************** */
 
 table img {
-    width: 100px;
+    width: 120px;
+    height: 80px;
 }
 
 

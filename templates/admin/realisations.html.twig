@@ -1,0 +1,40 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %} - Nos realisations{% endblock %}
+
+{% block body %}
+
+    <section class="realisations" id="realisations">
+      <h2>LISTING DES REALISATIONS</h2>
+   
+      <table class="table text-center table-hover table-sm">
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Photo Principale</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for realisation in realisations|reverse %}
+                <tr>
+                    <td class="align-middle">{{ loop.revindex }}</td>
+                    <td class="align-middle">{{ realisation.titre }}</td>
+                    <td class="align-middle">{{ realisation.description|u.truncate(50, '...', false) }}</td>
+                    <td class="align-middle"><img src="{{ asset('images/realisations/' ~ realisation.img) }}" alt="photo principale {{ realisation.titre }}"></td>
+                    <td class="align-middle">
+                        <a href="#" class="text-primary"><i class="fas fa-pen-square"></i></a>
+                        <a href="{{ path('rea_delete', {'id': realisation.id}) }}" class="text-danger"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-end my-5">
+        <a href="{{ path('rea_create') }}" class="btn btn-success">Ajouter une Realisation</a>
+    </div>
+
+{% endblock %}
