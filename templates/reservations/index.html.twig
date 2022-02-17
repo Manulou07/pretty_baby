@@ -5,16 +5,20 @@
 
 {% block body %}
 
-<section class="reservation" id="reservation">
-    <h2>RESERVATION</h2>
-        <div class="containerContact">
-            <div class="divcontact">
+<section class="container-fluid" id="reservation">
+    <div class="row">
+        <div class="col-12">
+            <h2>RESERVATION</h2>
+        </div>
+        <div class="col-6">
+            <div>
                 <a href="{{ path('home') }}">
                 <img class="logocontact" src="logo/logo.png" alt="logo du site">
                 </a>
             </div>
-
-            <div class="formulaire">
+        </div>
+        <div class="col-6">
+            <div>
                 <form method="post" action="reservation.php" id="form">
 
                 <div class="tabcontact">
@@ -34,9 +38,9 @@
                     <input type="telephone" class="tabform" name="email" placeholder="Votre numéro de telephone*">
                     <textarea name="comment" class="tabform" cols="80" rows="10" placeholder="Votre message..."></textarea>
                 </div>
-                <div class="btnform">
-                    <input type="reset" class="reset" value="EFFACER">
-                    <input type="submit" class="submit" value="RESERVER">
+                <div class="btnformulaire">
+                    <input type="reset" class="btnform" value="EFFACER">
+                    <input type="submit" class="btnform" value="RESERVER">
                 </div>
             </div>
         </div>

@@ -21,48 +21,49 @@
     <body>
         <header class="container-fluid" id="header">
             <div class="row">
-                <nav class="nav">
-                    <a class="btn" href="{{ path('home') }}#realisations">NOS REALISATIONS</a>
-                    <a class="btn" href="{{ path('home') }}#offres">NOS OFFRES</a>
+                <nav class="col-12 text-center" id="nav">
+                    <a class="btn p-5" href="{{ path('home') }}#realisations">NOS REALISATIONS</a>
+                    <a class="btn p-5" href="{{ path('home') }}#offres">NOS OFFRES</a>
                     <a href="{{ path('home') }}"><img class="logo" src="../../logo/logo.png" alt="logo du site"></a>
-                    <a class="btn" href="{{ path('home') }}#contact">NOUS CONTACTER</a>
-                    <a class="btn" href="{{ path('reservations') }}">RESERVEZ</a>
+                    <a class="btn p-5" href="{{ path('home') }}#contact">NOUS CONTACTER</a>
+                    <a class="btn p-5" href="{{ path('reservations') }}">RESERVEZ</a>
                 </nav>
             </div>
         </header>
 
         <main class="container-fluid">
-            {% block body %}{% endblock %}
+            <div class="row">
+                {% block body %}{% endblock %}
+            </div>
         </main>
 
-        <footer class="container-fluid footer">
+        <footer class="container-fluid" id="footer">
             <div class="row">
-
-                <div class="col-4" id= "apropos">
-                    <h4>A propos</h4>
-                    <a href="ml.html">mentions legales</a>
-                    <a href="dp.html">données personnelles</a>
-                    <a href="cookies.html">cookies</a>
-                    <a href="{{ path('admin') }}">admin</a>
+                <div class="row">
+                    <div class="col-4" id= "apropos">
+                        <h4>A propos</h4>
+                        <a href="ml.html">mentions legales</a></br>
+                        <a href="dp.html">données personnelles</a></br>
+                        <a href="cookies.html">cookies</a></br>
+                        <a href="{{ path('admin') }}">admin</a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="mailto:info@prettybaby.com">info@prettybaby.com</a>
+                    </div>
+                    <div class="col-4">
+                        <h2>
+                            suivez nous:
+                            <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        </h2>
+                    </div>
                 </div>
-            
-                <div class="col-4 text-center">
-                    <a href="mailto:info@prettybaby.com">info@prettybaby.com</a>
-                </div>
-                <div class="col-4">
-                    <h2>
-                        suivez nous:
-                        <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-                    </h2>
-                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p>Copyright © 2022 - Emmanuel De sousa</p>
+                    </div>
+               </div> 
             </div>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p>Copyright © 2022 - Emmanuel De sousa</p>
-                </div>
-            </div>
-            
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>

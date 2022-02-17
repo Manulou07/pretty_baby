@@ -5,28 +5,41 @@
     padding: 0;
     text-decoration: none;
     list-style-type:circle;
+    
+}
+
+a {
+    text-decoration: none;
 }
 
 :root {
-    --color-white: #FFFFFF;
+    --color-black: #000000;
     --color-light-grey: #BBBBBB;
+    --color-site: #FAE6De;
 }
 
 
 /* **************************************** NAV **************************************** */
 
-nav {
-    min-height: calc(100vh - 78.4px - 50px);
-}
+    
+
 
     nav a {
-        color: var(--color-white);
-       
+        color:var(--color-black);
+          
     }
 
         nav a:hover {
             color: var(--color-light-grey);
         }
+
+/* **************************************** HEADER **************************************** */
+
+#header{
+    background-color:var(--color-site);
+}
+
+
 
 /* **************************************** TABLE **************************************** */
 
@@ -35,5 +48,10 @@ table img {
     height: 80px;
 }
 
+/* **************************************** FOOTER**************************************** */
 
-
+#footer {
+    background-color:var(--color-site);
+    position: absolute; 
+    bottom: 0;
+}

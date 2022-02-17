@@ -25,8 +25,8 @@
                     <td class="align-middle">{{ realisation.description|u.truncate(50, '...', false) }}</td>
                     <td class="align-middle"><img src="{{ asset('images/realisations/' ~ realisation.img) }}" alt="photo principale {{ realisation.titre }}"></td>
                     <td class="align-middle">
-                        <a href="#" class="text-primary"><i class="fas fa-pen-square"></i></a>
-                        <a href="{{ path('rea_delete', {'id': realisation.id}) }}" class="text-danger"><i class="fas fa-trash-alt"></i></a>
+                        <a href="{{ path('rea_update', {'id': realisation.id}) }}" class="btn btn-primary m-2">Modifier</a>
+                        <a href="{{ path('rea_delete', {'id': realisation.id}) }}" class="btn btn-danger m-2">Supprimer</i></a>
                     </td>
                 </tr>
             {% endfor %}

@@ -12,16 +12,12 @@ padding:0;
     height: 30px;
     position:fixed;
     bottom: 55px;
-    right: 15px;
+    right: 45px;
     z-index: 1;
 }
 
-.nav{
+#nav{
     background-color:#FAE6De ;
-    display: flex;
-    justify-content:space-around;
-    align-items:center;
-    padding-top:15px;
          
 }
 
@@ -55,10 +51,9 @@ a {
     font-size:20px;
 }
 
-.presentation{
+#presentation{
     background-color: #FAE6DE;
-    padding: 15px 0px 25px 0px;
-      
+        
 }
 
 #divpres{
@@ -78,18 +73,17 @@ a {
     margin: auto;
 
 }
-.services{
+#services{
     background-color:#FAE6DE;
-    height: 850px;
+    
 }
 
 #divservice{
     background-color: #F6EFEF;
 }
 
-.realisations {
+#realisations {
     background-color: #F6EFEF;
-    padding-bottom: 1.5em;
 }
 
 h2{
@@ -103,6 +97,10 @@ justify-content: center;
     background-color: #F6EFEF;
 }
 
+#offres h3{
+    font-size: 100px;
+    
+}
 
 #divrealisation {
     background-color: #F8D9CC;
@@ -113,41 +111,14 @@ justify-content: center;
     height:400px;
 }
 
-.card h3{
-    font-size: 100px;
+
+#divoffres{
+    background-color: #faccb7;
     
 }
-
-.containeroffres{
-    padding:1.5em;
-    background-color:#F6EFEF ;
-    width: 100%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items:flex-end;
-     
-}
-
-.divoffres{
-    background-color: #faccb7;
-    height:597px;
-    width: 421px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-   flex-direction: column;
-}
-.divoffres1{
+#divoffres1{
     background-color: #f7b69b;
-    height:640px;
-    width: 421px;
- 
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-   
+      
 }
 
 .btnoffres{
@@ -168,7 +139,7 @@ justify-content: center;
     box-shadow: 10px 10px 10px black;
     }
 
-.reset{
+.btnform{
 background-color:#FAC37D;
 border-radius:5px;
 color:#F3653F;
@@ -176,81 +147,48 @@ padding:5px 25px 5px 25px;
 box-shadow: 5px 5px 5px black;
 }
 
-.reset:hover {
+.btnform:hover {
 
 background-color:#F3653F;
 color:#FAC37D;
 box-shadow: 10px 10px 10px black;
 }
-
-.submit{
-background-color:#FAC37D;
-border-radius:5px;
-color:#F3653F;
-padding:5px 25px 5px 25px;
-box-shadow: 5px 5px 5px black;
-
+       
+#contact{
+    background-color: #FAE6DE;
 }
-.submit:hover {
 
-    background-color:#F3653F;
-    color:#FAC37D;
-    box-shadow: 10px 10px 10px black;
+.tabcontact {
+    display:flex;
+    flex-direction: column;
     }
-        
-.containerContact {
-    display :flex;
-    justify-content:space-around;
-    padding:1.5em;
-
-    }
-
-    .contact{
-        background-color: #FAE6DE;
-       }
-
-    .tabcontact {
-        padding:5px;
-        display:flex;
-        flex-direction: column;
-       }
    
     
-    .tabform{
-    padding: 1em;
-    margin:5px;
-    border-radius: 10px;
+.tabform{
+padding: 1em;
+margin:5px;
+border-radius: 10px;
 }
 
-.btnform{
+.btnformulaire{
     display: flex;
     justify-content: space-around;
     padding:10px;
 }
 
-.footer{
+#footer{
     background-color:#FAE6De ;
-    padding:1em;
-    
+
 }
 
 
-.footer a{
-
+#footer a{
 text-decoration: none;
 color:black;
 margin: 1px;
 }
 
-#apropos{
- 
-    display:flex; 
-    justify-content:center;
-    flex-direction: column;
-} 
-
-
-.reservation{
+#reservation{
     background-color: #FAE6DE;
     width: 100%;
     margin: auto;

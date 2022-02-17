@@ -16,5 +16,10 @@
                 <img src="{{ ('../../images/realisations/' ~ image.nameimg) }}" alt="photo realisations" id="cardimg">       
             </div>
         {% endfor %}
+
+        <div class="row" >
+            <div class="col-12 m-2 p-3 text-center">
+              <a href="{{ path('realisations') }}" class="btnoffres">Retour vers nos réalisations</a>
+        </div>
     </section>
 {% endblock %}

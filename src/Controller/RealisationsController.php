@@ -61,14 +61,19 @@ class RealisationsController extends AbstractController
 
             $manager = $managerRegistry->getManager();
 
-            $infoImg = $form['img']->getData(); 
-            $extensionImg = $infoImg->guessExtension(); 
-            $nomImg = time() . '-1.' . $extensionImg;
-            $infoImg->move($this->getParameter('dossier_photos_realisations'), $nomImg);
-            $realisation->setImg($nomImg);
-            $manager->persist($realisation);
+            if (!empty($form['img']->getData())) {
+                $infoImg = $form['img']->getData(); 
+                $extensionImg = $infoImg->guessExtension(); 
+                $nomImg = time() . '-1.' . $extensionImg;
+                $infoImg->move($this->getParameter('dossier_photos_realisations'), $nomImg);
+                $realisation->setImg($nomImg);
+                $manager->persist($realisation);
+           }else{
+            $this->addFlash('danger', 'La photo principale est obligatoire');
+            return $this->redirectToRoute('rea_create');
+            }
 
-            for ($i = 2; $i <= 10; $i++) {
+            for ($i = 2; $i <= 9; $i++) {
                 if (!empty($form['img' . $i]->getData())) {
                     $image = new Images();
                     $infoImg = $form['img' . $i]->getData(); 
@@ -80,16 +85,12 @@ class RealisationsController extends AbstractController
                     $manager->persist($image);
                 }
             }
-            
-            
             $manager->flush();
 
             $this->addFlash('success', 'Le contenu a bien été ajoutée');
             return $this->redirectToRoute('admin_realisations_index');
         }
-       
-
-        return $this->render('admin/realisationForm.html.twig', [
+            return $this->render('admin/realisationForm.html.twig', [
             'realisationForm' => $form->createView()
         ]);
     }
@@ -120,7 +121,67 @@ class RealisationsController extends AbstractController
         $manager->flush();
 
         // redirection
-        $this->addFlash('success', 'Le contenu a bien été ajoutée');
+        $this->addFlash('danger', 'Le contenu a bien été supprimé');
         return $this->redirectToRoute('admin_realisations_index');
     }
+
+    #[Route('/admin/realisation/update/{id}', name: 'rea_update')]
+    public function update(RealisationsRepository $realisationsRepository, int $id, Request $request, ManagerRegistry $managerRegistry)
+    {
+        $realisation = $realisationsRepository->find($id);
+        $form = $this->createForm(RealisationsType::class, $realisation);
+        $form->handleRequest($request);
+
+        $manager = $managerRegistry->getManager();
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $infoImg = $form['img']->getData();
+            $nomOldImg = $realisation->getImg();
+            if ($infoImg !== null) {
+                $cheminImg = $this->getParameter('dossier_photos_realisations') . '/' . $nomOldImg;
+                if (file_exists($cheminImg)) {
+                    unlink($cheminImg);
+                }
+                $extensionImg = $infoImg->guessExtension();
+                $nomImg = time() . '-1.' . $extensionImg;
+                $infoImg->move($this->getParameter('dossier_photos_realisations'), $nomImg);
+                $realisation->setImg($nomImg);
+                $manager->persist($realisation);
+            } else {
+                $realisation->setImg($nomOldImg);
+            }
+
+            for ($i = 2; $i <= 9; $i++){
+                $image = new Images();
+                $infoImg = $form['img' . $i]->getData();
+                $nomOldImg = $image->getNameimg();
+                
+                if ($infoImg !== null) {
+                    if ($nomOldImg !== null) {
+                         $cheminOldImg = $this->getParameter('dossier_photos_realisations') . '/' . $nomOldImg;
+                        if (file_exists($cheminOldImg)) {
+                            unlink($cheminOldImg);
+                        }
+                    }
+                    $extensionImg = $infoImg->guessExtension();
+                    $nomImg = time() . '-'.$i.'.' . $extensionImg;
+                    $infoImg->move($this->getParameter('dossier_photos_realisations'), $nomImg);
+                    $image->setNameimg($nomImg);
+                    $image->setRelation($realisation);
+                    $manager->persist($image);
+                } else {
+                    $image->setNameimg($nomOldImg);
+                }
+            }   
+            
+            $manager->flush();
+            $this->addFlash('success', 'Le contenu a bien été modifiée');
+            return $this->redirectToRoute('admin_realisations_index');
+        }
+            
+        return $this->render('admin/realisationForm.html.twig', [
+            'realisationForm' => $form->createView()
+        ]);
+    }
+
 }

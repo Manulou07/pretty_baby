@@ -55,10 +55,10 @@ class RealisationsType extends AbstractType
                     'placeholder' => 'Ex.:Baby shower sur le thème...'
                 ]
             ]);
-            for ($i = 2; $i <= 10; $i++) {
+            for ($i = 2; $i <= 9; $i++) {
                 $builder->add('img' . $i, FileType::class, [
                     'required' => false,
-                    'label' => 'Photo Supplémentaire' . $i,
+                    'label' => 'Photo Supplémentaire ' . $i,
                     'mapped' => false,
                     'constraints' => [
                         new Image([
