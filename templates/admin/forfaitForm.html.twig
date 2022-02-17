@@ -1,0 +1,27 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %} - Forfaits{% endblock %}
+
+{% block body %}
+
+    {{ form_start(forfaitForm) }}
+
+        <div class="row">
+            <div class="col-5">
+                {{ form_row(forfaitForm.type_forfait, {'label': 'Nom du Forfait:'}) }}
+            </div>
+            <div class="col-7">
+                {{ form_row(forfaitForm.prix_forfait, {'label': 'Prix du Forfait:'}) }}
+            </div>
+              
+        </div>
+       
+
+        <div class="col-12 d-flex justify-content-end">
+            <a href="{{ path('admin_forfaits_index') }}" class="btn btn-danger m-3">Annuler</a>
+            <button class="btn btn-success m-3">Créer ou Modifier</button>
+        </div>
+
+    {{ form_end(forfaitForm) }}
+
+{% endblock %}

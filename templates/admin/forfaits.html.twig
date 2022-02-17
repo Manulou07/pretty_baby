@@ -1,0 +1,36 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %} - Nos Forfaits{% endblock %}
+
+{% block body %}
+
+    <section >
+      <h2>LISTING DES FORFAITS</h2>
+   
+      <table class="table text-center table-hover table-sm">
+        <thead>
+            <tr>
+                <th>TYPE FORFAIT</th>
+                <th>TARIF</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for forfait in forfaits %}
+                <tr>
+                    <td class="align-middle">{{ loop.revindex }}</td>
+                    <td class="align-middle">{{ forfait.typeForfait }}</td>
+                    <td class="align-middle">{{ forfait.prixForfait }}</td>
+                    <td class="align-middle">
+                        <a href="{{ path('forfait_update', {'id': forfait.id}) }}" class="btn btn-primary m-2">Modifier</a>
+                        <a href="{{ path('forfait_delete', {'id': forfait.id}) }}" class="btn btn-danger m-2">Supprimer</i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-end my-5">
+        <a href="{{ path('forfaits_create') }}" class="btn btn-success">Ajouter un forfait</a>
+    </div>
+
+{% endblock %}

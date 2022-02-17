@@ -20,6 +20,9 @@ padding:0;
     background-color:#FAE6De ;
          
 }
+#header{
+    text-decoration: none;
+}
 
 .logo{
     width: 150px;

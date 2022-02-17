@@ -129,12 +129,14 @@ class RealisationsController extends AbstractController
     public function update(RealisationsRepository $realisationsRepository, int $id, Request $request, ManagerRegistry $managerRegistry)
     {
         $realisation = $realisationsRepository->find($id);
+        
         $form = $this->createForm(RealisationsType::class, $realisation);
         $form->handleRequest($request);
 
         $manager = $managerRegistry->getManager();
 
         if ($form->isSubmitted() && $form->isValid()) {
+            
             $infoImg = $form['img']->getData();
             $nomOldImg = $realisation->getImg();
             if ($infoImg !== null) {
