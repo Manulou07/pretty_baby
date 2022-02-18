@@ -37,8 +37,15 @@ a {
 
 #header{
     background-color:var(--color-site);
+    position: fixed;
 }
 
+/* **************************************** MAIN **************************************** */
+
+main {
+    padding-top: 143px;
+    min-height: calc(100vh - 60px);
+}
 
 
 /* **************************************** TABLE **************************************** */
@@ -52,6 +59,6 @@ table img {
 
 #footer {
     background-color:var(--color-site);
-    position: absolute; 
+    
     bottom: 0;
 }

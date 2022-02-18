@@ -5,7 +5,7 @@
 {% block body %}
    
     <section class="container-fluid" id="presentation">
-        <div class="row">
+        
             <div class="row text-center p-5">
                 <div class="col-12">
                     <h1>BIENVENUE CHEZ PRETTY BABY</h1> 
@@ -36,7 +36,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+       
     </section>
  
     <section class="container-fluid" id="realisations">
@@ -210,7 +210,7 @@
         
         </div>
     </section>
-
+    
     <section class="container-fluid" id="contact">
         <div class="row">
             <div class="col-12">
@@ -241,6 +241,29 @@
                     </form>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="container-fluid" id="livredor">
+        <div class="row p-4">
+            <div class="col-12">
+                <h2>COMMENTAIRES CLIENT</h2>
+            </div>
+            {% for comment in comments|reverse %}
+                {% if comment.publish  == true %}
+                    <div class="col-4 ">
+                        <div class="card text-center" id="divoffres">
+                            <div class="card-body">
+                                <h2 class="card-title">{{ comment.fkidrealisations.titre}}</h2>
+                                <p class="card-text"><i class="fas fa-quote-left"></i> {{ comment.comment }} <i class="fas fa-quote-right"></i></p>
+                            </div>
+                            <div class="card-body text-center p-4" >
+                                <a href="{{ path('photo_all', {'id': comment.fkidrealisations.id}) }}" class="btnoffres">Voir les photos</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
         </div>
     </section>
 {% endblock %}

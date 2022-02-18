@@ -30,6 +30,9 @@ class Realisations
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'realisations')]
     private $fk_id_user;
 
+    #[ORM\OneToOne(mappedBy: 'fk_id_realisations', targetEntity: Commentaires::class, cascade: ['persist', 'remove'])]
+    private $commentaires;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
@@ -114,6 +117,23 @@ class Realisations
     public function setFkIdUser(?User $fk_id_user): self
     {
         $this->fk_id_user = $fk_id_user;
+
+        return $this;
+    }
+
+    public function getCommentaires(): ?Commentaires
+    {
+        return $this->commentaires;
+    }
+
+    public function setCommentaires(Commentaires $commentaires): self
+    {
+        // set the owning side of the relation if necessary
+        if ($commentaires->getFkIdRealisations() !== $this) {
+            $commentaires->setFkIdRealisations($this);
+        }
+
+        $this->commentaires = $commentaires;
 
         return $this;
     }

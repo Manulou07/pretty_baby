@@ -4,22 +4,19 @@
 
 {% block body %}
 
-    <section class="row realisations">
+    <section class="row" id="realisations">
         <div class="col-12">
             <h2>PHOTO BABY SHOWER</h2>
         </div>
-        <div class="col-4 p-3">
+        <div class="col-4 p-5">
             <img src="{{ asset('images/realisations/' ~ realisation.img) }}" alt="photo realisations" id="cardimg">       
         </div>
         {% for image in images %}
-            <div class="col-4 p-3">
-                <img src="{{ ('../../images/realisations/' ~ image.nameimg) }}" alt="photo realisations" id="cardimg">       
+            <div class="col-4 p-5">
+                <img src="{{ asset('images/realisations/' ~ image.nameimg) }}" alt="photo realisations" id="cardimg">       
             </div>
         {% endfor %}
 
-        <div class="row" >
-            <div class="col-12 m-2 p-3 text-center">
-              <a href="{{ path('realisations') }}" class="btnoffres">Retour vers nos réalisations</a>
-        </div>
+  
     </section>
 {% endblock %}

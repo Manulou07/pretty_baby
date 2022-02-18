@@ -70,7 +70,7 @@ class AdminController extends AbstractController
     }
 
     
-    #[Route('/admin/realisation/update/{id}', name: 'forfait_update')]
+    #[Route('/admin/forfait/update/{id}', name: 'forfait_update')]
     public function update(ForfaitRepository $forfaitsRepository, int $id, Request $request, ManagerRegistry $managerRegistry)
     {
         $forfait = $forfaitsRepository->find($id);

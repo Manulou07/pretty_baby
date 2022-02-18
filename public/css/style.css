@@ -16,12 +16,21 @@ padding:0;
     z-index: 1;
 }
 
+/* **************************************** MAIN **************************************** */
+
+#main {
+    padding-top: 143px;
+    min-height: calc(100vh - 172.33px);
+    background-color: #F6EFEF;
+}
+
 #nav{
     background-color:#FAE6De ;
          
 }
 #header{
     text-decoration: none;
+
 }
 
 .logo{
@@ -196,3 +205,8 @@ margin: 1px;
     width: 100%;
     margin: auto;
    }
+
+#livredor{
+    background-color: #F6EFEF;
+
+}

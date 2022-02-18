@@ -116,7 +116,7 @@ class RealisationsController extends AbstractController
             unlink($pathImgPrincipale);
         }
 
-        // suppression de l'objet realistion en bdd
+        // suppression de l'objet realisation en bdd
         $manager->remove($realisation);
         $manager->flush();
 
@@ -129,21 +129,20 @@ class RealisationsController extends AbstractController
     public function update(RealisationsRepository $realisationsRepository, int $id, Request $request, ManagerRegistry $managerRegistry)
     {
         $realisation = $realisationsRepository->find($id);
-        
         $form = $this->createForm(RealisationsType::class, $realisation);
         $form->handleRequest($request);
 
-        $manager = $managerRegistry->getManager();
-
         if ($form->isSubmitted() && $form->isValid()) {
-            
+            $manager = $managerRegistry->getManager();
             $infoImg = $form['img']->getData();
             $nomOldImg = $realisation->getImg();
+            
             if ($infoImg !== null) {
                 $cheminImg = $this->getParameter('dossier_photos_realisations') . '/' . $nomOldImg;
                 if (file_exists($cheminImg)) {
                     unlink($cheminImg);
                 }
+                
                 $extensionImg = $infoImg->guessExtension();
                 $nomImg = time() . '-1.' . $extensionImg;
                 $infoImg->move($this->getParameter('dossier_photos_realisations'), $nomImg);
