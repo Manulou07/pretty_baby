@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 
+use App\Repository\ForfaitRepository;
 use App\Repository\CommentairesRepository;
 use App\Repository\RealisationsRepository;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,14 +14,16 @@ class HomeController extends AbstractController
 {
     #[Route('/', name: 'home')]
    
-    public function index(CommentairesRepository $commentsRepository, RealisationsRepository $realisationsRepository): Response
+    public function index(ForfaitRepository $forfaitsRepository, CommentairesRepository $commentsRepository, RealisationsRepository $realisationsRepository): Response
     {
         $realisations = $realisationsRepository->findAll();
         $comments = $commentsRepository->findAll();
+        $forfaits = $forfaitsRepository->findAll();
         
         return $this->render('home/index.html.twig', [
             'realisations' => $realisations,
-            'comments' => $comments
+            'comments' => $comments,
+            'forfaits' => $forfaits
         ]);
     }
       

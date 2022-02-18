@@ -33,25 +33,31 @@ class AdminController extends AbstractController
     }
 
     #[Route('/admin/forfaits/create', name: 'forfaits_create')]
-    public function create(Request $request,  ManagerRegistry $managerRegistry)
+    public function create(ForfaitRepository $forfaitsRepository, Request $request,  ManagerRegistry $managerRegistry)
     {
-        $forfait = new Forfait();
-        $form = $this->createForm(ForfaitType::class, $forfait); 
-        $form->handleRequest($request);
-      
-
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            $manager = $managerRegistry->getManager();
-            $manager->persist($forfait);
-            $manager->flush();
-
-            $this->addFlash('success', 'Le forfait a bien été ajoutée');
+        $forfaits = $forfaitsRepository->findAll();
+        
+        if (count($forfaits) >= 3){
+            $this->addFlash('danger', 'Il ne peut pas avoir plus de trois forfaits veuillez modifier un existant');
             return $this->redirectToRoute('admin_forfaits_index');
+        } else {
+            $forfait = new Forfait();
+            $form = $this->createForm(ForfaitType::class, $forfait); 
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+
+                $manager = $managerRegistry->getManager();
+                $manager->persist($forfait);
+                $manager->flush();
+
+                $this->addFlash('success', 'Le forfait a bien été ajoutée');
+                return $this->redirectToRoute('admin_forfaits_index');
+            }
+                return $this->render('admin/forfaitForm.html.twig', [
+                'forfaitForm' => $form->createView()
+            ]);
         }
-            return $this->render('admin/forfaitForm.html.twig', [
-            'forfaitForm' => $form->createView()
-        ]);
     }
 
     #[Route('/admin/forfaits/delete/{id}', name: 'forfait_delete')]

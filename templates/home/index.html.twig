@@ -133,81 +133,70 @@
             <div class="col-12">
                 <h2>NOS OFFRES</h2>
             </div>
-        
-            <div class="col-4 ">
-                <div class="card text-center" id="divoffres">
-                    <div class="card-body">
-                        <h2 class="card-title">BASIQUE</h2>
-                        <h3>299€</h3>
-                        <p class="card-text">Ce forfait comprend :</p>
-                        <div class="row p-4">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group">Un pack décoration</li>
-                                <li class="list-group">Un pack souvenir</li>
-                                <li class="list-group"> </li>
-                                <li class="list-group"> </li>
-                            </ul>
-                        </div>
-                            
-                        <div class="row p-4">
-                            <div class="col-4"></div>
-                            <div class="col-4">
-                                <a class="btnoffres" href="{{ path('reservations', {'id': 'basic'}) }}">RESERVEZ</a>
-                            </div>
-                            <div class="col-4"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="card text-center" id="divoffres1">
-                    <div class="card-body">
-                        <h2 class="card-title">MEDIUM</h2>
-                        <h3>399€</h3>
-                        <p class="card-text">Ce forfait comprend :</p>
-                        <div class="row p-4">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group">Un pack décoration</li>
-                                <li class="list-group">Un pack souvenir</li>
-                                <li class="list-group">Un pack REPAS</li>
-                                <li class="list-group"> </li>
-                            </ul>
-                        </div>
-                        <div class="row p-4">
-                            <div class="col-4"></div>
-                            <div class="col-4">
-                                <a class="btnoffres" href="{{ path('reservations', {'id': 'basic'}) }}">RESERVEZ</a>
-                            </div>
-                            <div class="col-4"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="card text-center" id="divoffres">
-                    <div class="card-body">
-                        <h2 class="card-title">LUXE</h2>
-                        <h3>499€</h3>
-                        <p class="card-text">Ce forfait comprend :</p>
-                        <div class="row">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group">Un pack décoration</li>
-                                <li class="list-group">Un pack souvenir</li>
-                                <li class="list-group">Un pack repas</li>
-                                <li class="list-group">Une sceance Photo</li>
-                            </ul>
-                        </div>
-                        <div class="row p-4">
-                            <div class="col-4"></div>
-                            <div class="col-4">
-                                <a class="btnoffres" href="{{ path('reservations', {'id': 'basic'}) }}">RESERVEZ</a>
-                            </div>
-                            <div class="col-4"></div>
+            {% for forfait in forfaits %}
+                <div class="col-4 ">
+                    <div class="card text-center" id="divoffres">
+                        <div class="card-body">
+                            <h2 class="card-title">{{ forfait.typeForfait }}</h2>
+                            <h3>{{ forfait.prixForfait }}€</h3>
+                            <p class="card-text">Ce forfait comprend :</p>
+                            {% if forfait.id == 1 %}
+                                <div class="row p-4">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group">Un pack décoration</li>
+                                        <li class="list-group">Un pack souvenir</li>
+                                        <li class="list-group"> </li>
+                                        <li class="list-group"> </li>
+                                    </ul>
+                                </div>
+                                    
+                                <div class="row p-4">
+                                    <div class="col-4"></div>
+                                    <div class="col-4">
+                                        <a class="btnoffres" href="{{ path('reservations', {'id': forfait.id}) }}">RESERVEZ</a>
+                                    </div>
+                                    <div class="col-4"></div>
+                                </div>
+                            {% elseif forfait.id == 2 %}
+                                <div class="row p-4">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group">Un pack décoration</li>
+                                        <li class="list-group">Un pack souvenir</li>
+                                        <li class="list-group">Un pack REPAS</li>
+                                        <li class="list-group"> </li>
+                                    </ul>
+                                </div>
+
+                                <div class="row p-4">
+                                    <div class="col-4"></div>
+                                    <div class="col-4">
+                                        <a class="btnoffres" href="{{ path('reservations', {'id': forfait.id}) }}">RESERVEZ</a>
+                                    </div>
+                                    <div class="col-4"></div>
+                                </div>
+                            {% else %}
+                                <div class="row p-4">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group">Un pack décoration</li>
+                                        <li class="list-group">Un pack souvenir</li>
+                                        <li class="list-group">Un pack REPAS</li>
+                                        <li class="list-group">Une scéance Photo</li>
+                                    </ul>
+                                </div>
+
+                                <div class="row p-4">
+                                    <div class="col-4"></div>
+                                    <div class="col-4">
+                                        <a class="btnoffres" href="{{ path('reservations', {'id': forfait.id}) }}">RESERVEZ</a>
+                                    </div>
+                                    <div class="col-4"></div>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
-            </div>
-        
+            {% endfor %}
+                    
         </div>
     </section>
     
@@ -243,7 +232,7 @@
             </div>
         </div>
     </section>
-
+    
     <section class="container-fluid" id="livredor">
         <div class="row p-4">
             <div class="col-12">
