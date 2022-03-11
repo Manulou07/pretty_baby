@@ -21,7 +21,7 @@ class RealisationsController extends AbstractController
     {
         $realisations = $realisationsRepository->findAll();
         
-        return $this->render('realisations/index.html.twig', [
+        return $this->render('admin/reservations.html.twig', [
             'realisations' => $realisations,
         ]);
     }

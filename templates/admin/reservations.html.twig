@@ -1,0 +1,37 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %} - Reservations{% endblock %}
+
+{% block body %}
+
+      <h2>LISTING DES RESERVATIONS</h2>
+   
+      <table class="table text-center table-hover table-sm">
+        <thead>
+            <tr>
+                <th>DATE DE LA RESERVATION</th>
+                <th>DATE DE LA PRESTATION</th>
+                <th>FORFAIT</th>
+                <th>EMAIL CLIENT</th>
+                <th>ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for resa in reservations|reverse %}
+                <tr>
+                    <td class="align-middle">{{ resa.dateResa|date('d/m/Y') }}</td>
+                    <td class="align-middle">{{ resa.datePrestation|date('d/m/Y') }}</td>
+                    <td class="align-middle">{{ resa.fkIdForfait.typeForfait }}</td>
+                    <td class="align-middle">{{ resa.fkIdUser.email }}</td>
+                    <td class="align-middle">
+                        <a href="{{ path('resa_list_plus',{'id': resa.id}) }}" class="btn btn-primary m-2">Voir plus</a>
+                        <a href="{{ path('resa_delete',{'id': resa.id}) }}" class="btn btn-danger m-2">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    
+
+{% endblock %}

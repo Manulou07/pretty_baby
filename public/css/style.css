@@ -19,8 +19,7 @@ padding:0;
 /* **************************************** MAIN **************************************** */
 
 #main {
-    padding-top: 143px;
-    min-height: calc(100vh - 172.33px);
+    
     background-color: #F6EFEF;
 }
 
@@ -134,10 +133,10 @@ justify-content: center;
 }
 
 .btnoffres{
-    background-color:#FAC37D;
+    background-color:#FAE6DE;
     border:1PX;
     border-radius:5px;
-    color:#F3653F;
+    color:#444241;
     padding:5px 15px 5px 15px;
     box-shadow: 5px 5px 5px black;
     text-decoration: none;
@@ -146,23 +145,23 @@ justify-content: center;
 
 .btnoffres:hover {
  
-    background-color:#F3653F;
-    color:#FAC37D;
+    background-color:#444241;
+    color:#FAE6DE;
     box-shadow: 10px 10px 10px black;
     }
 
 .btnform{
-background-color:#FAC37D;
+background-color:#FAE6DE;
 border-radius:5px;
-color:#F3653F;
+color:#444241;
 padding:5px 25px 5px 25px;
 box-shadow: 5px 5px 5px black;
 }
 
 .btnform:hover {
 
-background-color:#F3653F;
-color:#FAC37D;
+background-color:#444241;
+color:#FAE6DE;
 box-shadow: 10px 10px 10px black;
 }
        

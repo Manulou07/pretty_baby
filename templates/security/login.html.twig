@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} - Connexion{% endblock %}
+
+{% block body %}
+    <section class="container-fluid" id="reservation">
+        <div class="row">
+            <div class="col-12">
+                <h2>CONNEXION</h2>
+            </div>
+            <div class="col-5 p-5">
+                <div>
+                    <a href="{{ path('home') }}">
+                    <img class="logocontact" src="{{ asset('logo/logo.png') }}" alt="logo du site">
+                    </a>
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="row p-5">
+                    <form method="post">
+                        <div class="col-6 offset-3">
+                            {% if error %}
+                                <div class="alert alert-danger text-center">Email ou Mot de passe incorrect</div>
+                            {% endif %}
+                            {% if app.user %}
+                                <div class="mb-3">
+                                Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="col-12 text-center d-block align-items-center p-5">
+                            <h3>Connectez vous</h3> 
+                            <label for="inputEmail">Votre Email</label>
+                            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control m-3" autocomplete="email" required autofocus>
+                            <label for="inputPassword">Votre Mot de passe</label>
+                            <input type="password" name="password" id="inputPassword" class="form-control m-3" autocomplete="current-password" required>
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                        <div class="btnformulaire">
+                            <button class="btn btnoffres" type="submit">Connexion</button>
+                        </div> 
+                            <br>
+                            <p class="p-3">ou</p>
+                            <h3><a href="{{ path('app_register') }}">Créez votre compte</a></h3>
+                    </form>
+                </div>
+            </div>      
+        </div>
+    </section>
+   
+{% endblock %}

@@ -150,3 +150,9 @@ php bin/console make:form nom_du_formulaire
 twig:
     form_themes: ['bootstrap_5_layout.html.twig']
 ```
+
+
+
+1. suppriemr les tables dasn phpMyAdmin (ou d:d:d --force puis d:d:c)
+2. make:migration et d:m:m
+3. ouvrir le fichier exporté de la bdd et y récupérer les requêtes INSERT INTO et les taper (copier-coller) dans "SQL" de PHP my admin

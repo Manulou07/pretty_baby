@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %} - Reservations{% endblock %}
+
+{% block body %}
+    <section class="container-fluid" id="reservation">
+        <div class="row">
+            
+            <div class="col-12">
+                <h2>ADRESSES</h2>
+                
+            </div>
+            <div class="col-6 offset-5 p-4">
+                <h5><b>Adresse</b> -> Choix de la date -> Paiement</h5>
+            </div>
+           
+            <div class="col-5">
+                <div>
+                    <a href="{{ path('home') }}">
+                    <img class="logocontact" src="{{ asset('logo/logo.png') }}" alt="logo du site">
+                    </a>
+                </div>
+            </div>
+            <div class="col-7">
+                {% for label, messages in app.flashes %} 
+                    {% for message in messages %}
+                       <div class="col-6 offset-3">
+                        <div class="flash-{{ label }} p-3 mb-5 rounded text-center col-6">
+                            {{ message }}
+                        </div>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                {{ form_start(resaFormadresse) }}
+                    <div class="row">
+                        <div class="col-6 offset-2 p-4">
+                            <h5>Veuillez renseignez votre adresse</h5>
+                        </div>
+                        <div class="col-5">
+                            {{ form_row(resaFormadresse.numero, {'label': 'Numero de la rue:'}) }}
+                        </div>
+                        <div class="col-5">
+                            {{ form_row(resaFormadresse.type, {'label': 'Type de voie:'}) }}
+                        </div>
+                        <div class="col-10">
+                            {{ form_row(resaFormadresse.nomRue, {'label': 'Nom de la rue:'}) }}
+                        </div>
+                        <div class="col-5">
+                            {{ form_row(resaFormadresse.codepostal, {'label': 'Code Postal:'}) }}
+                        </div>
+                        <div class="col-5">
+                            {{ form_row(resaFormadresse.ville, {'label': 'Ville:'}) }}
+                        </div>
+                    </div>  
+                    <div class="btnformulaire">
+                        <button class="btn btnoffres">suivant</button>
+                    </div>
+                {{ form_end(resaFormadresse) }} 
+                   
+            </div>
+        </div>
+    </section>
+{% endblock %}

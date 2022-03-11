@@ -1,30 +1,30 @@
 {% extends 'baseAdmin.html.twig' %}
 
-{% block title %} - Forfaits{% endblock %}
+{% block title %} - Utilisateurs{% endblock %}
 
 {% block body %}
     <div class="row text-center">
-        <h1>Gestion Forfaits</h1>
+        <h1>Gestion Utilisateur</h1>
     </div>
 
-    {{ form_start(forfaitForm) }}
+    {{ form_start(registrationForm) }}
 
         <div class="row">
             <div class="col-6 offset-3">
-                {{ form_row(forfaitForm.type_forfait, {'label': 'Nom du Forfait:'}) }}
+                {{ form_row(registrationForm.email, {'label': 'Email:'}) }}
             </div>
+            
             <div class="col-6 offset-3">
-                {{ form_row(forfaitForm.prix_forfait, {'label': 'Prix du Forfait:'}) }}
+                {{ form_row(registrationForm.roles, {'label': 'Roles:'}) }}
             </div>
-              
         </div>
        
 
         <div class="col-6  offset-3 d-flex justify-content-end">
-            <a href="{{ path('admin_forfaits_index') }}" class="btn btn-danger m-3">Annuler</a>
+            <a href="{{ path('registerlist') }}" class="btn btn-danger m-3">Annuler</a>
             <button class="btn btn-success m-3">Créer ou Modifier</button>
         </div>
 
-    {{ form_end(forfaitForm) }}
+    {{ form_end(registrationForm) }}
 
 {% endblock %}

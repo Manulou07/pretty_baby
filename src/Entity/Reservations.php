@@ -16,18 +16,19 @@ class Reservations
     #[ORM\Column(type: 'date')]
     private $date_resa;
 
-    #[ORM\Column(type: 'date')]
-    private $date_prestation;
-
     #[ORM\Column(type: 'text')]
     private $msg_resa;
-
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'reservations')]
-    private $fk_id_user;
 
     #[ORM\ManyToOne(targetEntity: Forfait::class, inversedBy: 'reservations')]
     #[ORM\JoinColumn(nullable: false)]
     private $fk_id_forfait;
+
+    #[ORM\OneToOne(inversedBy: 'reservations', targetEntity: Disponibilite::class, cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private $date_prestation;
+
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'reservations')]
+    private $fk_id_user;
 
     public function getId(): ?int
     {
@@ -46,18 +47,6 @@ class Reservations
         return $this;
     }
 
-    public function getDatePrestation(): ?\DateTimeInterface
-    {
-        return $this->date_prestation;
-    }
-
-    public function setDatePrestation(\DateTimeInterface $date_prestation): self
-    {
-        $this->date_prestation = $date_prestation;
-
-        return $this;
-    }
-
     public function getMsgResa(): ?string
     {
         return $this->msg_resa;
@@ -70,18 +59,6 @@ class Reservations
         return $this;
     }
 
-    public function getFkIdUser(): ?User
-    {
-        return $this->fk_id_user;
-    }
-
-    public function setFkIdUser(?User $fk_id_user): self
-    {
-        $this->fk_id_user = $fk_id_user;
-
-        return $this;
-    }
-
     public function getFkIdForfait(): ?Forfait
     {
         return $this->fk_id_forfait;
@@ -90,6 +67,35 @@ class Reservations
     public function setFkIdForfait(?Forfait $fk_id_forfait): self
     {
         $this->fk_id_forfait = $fk_id_forfait;
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this;
+    }
+
+    public function getDatePrestation(): ?Disponibilite
+    {
+        return $this->date_prestation;
+    }
+
+    public function setDatePrestation(Disponibilite $date_prestation): self
+    {
+        $this->date_prestation = $date_prestation;
+
+        return $this;
+    }
+
+    public function getFkIdUser(): ?User
+    {
+        return $this->fk_id_user;
+    }
+
+    public function setFkIdUser(?User $fk_id_user): self
+    {
+        $this->fk_id_user = $fk_id_user;
 
         return $this;
     }

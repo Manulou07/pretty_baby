@@ -4,26 +4,29 @@
 
 {% block body %}
 
+    <div class="row text-center">
+        <h1>Gestion Realisations</h1>
+    </div>
     {{ form_start(realisationForm) }}
 
         <div class="row">
-            <div class="col-5">
+            <div class="col-4 offset-2">
                 {{ form_row(realisationForm.titre, {'label': 'Titre'}) }}
             </div>
-            <div class="col-7">
+            <div class="col-4">
                 {{ form_row(realisationForm.img, {'label': 'Photo principale'}) }}
             </div>
         </div>
 
         <div class="row">
-            <div class="col-12">
+            <div class="col-8 offset-2">
                 {{ form_row(realisationForm.description, {'label': 'Description'}) }}
             </div>
         </div>
 
         <div class="row">
             {% for i in 2..9 %}
-                <div class="col-6">
+                <div class="col-3 offset-2">
                     {{ form_row(attribute(realisationForm, ('img' ~ i))) }}
                 </div>
             {% endfor %}

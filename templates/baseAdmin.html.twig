@@ -30,13 +30,16 @@
                 <div class="col-12">
                     <nav>
                     
-                        <a href="{{ path('admin') }}" title="accueil administrateur"><i class="fas fa-laptop p-4"></i>Accueil admin</a>
-                        <a href="{{ path('admin_realisations_index')}}" title="realisations"><i class="fas fa-birthday-cake p-4"></i>Realisations</a>
-                        <a href="{{ path('admin_forfaits_index')}}" title="forfaits"><i class="fas fa-dollar-sign p-4"></i>Forfait</a>
-                        <a href="{{ path('admin_comments_index') }}" title="commentaires"><i class="fas fa-comment p-4"></i>Commentaire client</a>
-                        <a href="#" title="reservation"><i class="fas fa-book-open p-4"></i>Reservation</a>
-                        <a href="{{ path('home') }}" title="accueil site"><i class="fas fa-home p-4"></i>Accueil site</a>
-                        <a href="#" title="déconnexion"><i class="fas fa-sign-out-alt p-4"></i>Deconnexion</a>
+                        <a href="{{ path('admin') }}" title="accueil administrateur"><i class="fas fa-laptop p-3"></i>Accueil admin</a>
+                        <a href="{{ path('admin_realisations_index')}}" title="realisations"><i class="fas fa-birthday-cake p-3"></i>Realisations</a>
+                        <a href="{{ path('resa_list')}}" title="reservation"><i class="fas fa-book-open p-3"></i>Reservation</a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a href="{{ path('admin_forfaits_index')}}" title="forfaits"><i class="fas fa-dollar-sign p-3"></i>Forfait</a>
+                            <a href="{{ path('dispo_list') }}" title="disponibilites"><i class="far fa-calendar-alt p-3"></i>Disponibilités</a>
+                            <a href=" {{ path('registerlist') }}" title="utilisateur"><i class="far fa-user p-3"></i>Gestion utilisateur</a>
+                            <a href="{{ path('admin_comments_index') }}" title="commentaires"><i class="fas fa-comment p-3"></i>Commentaire client</a>
+                        {% endif %}
+                        <a href="{{ path('app_logout') }}" title="déconnexion"><i class="fas fa-sign-out-alt p-3"></i>Deconnexion</a>
                     
                     </nav>
                 </div>
