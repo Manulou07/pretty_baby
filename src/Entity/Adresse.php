@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AdresseRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AdresseRepository::class)]
@@ -31,6 +33,17 @@ class Adresse
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'adresses')]
     #[ORM\JoinColumn(nullable: false)]
     private $fk_id_user;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $adresseComplete;
+
+    #[ORM\OneToMany(mappedBy: 'fk_id_adresse', targetEntity: Reservations::class)]
+    private $reservations;
+
+    public function __construct()
+    {
+        $this->reservations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -105,6 +118,48 @@ class Adresse
     public function setFkIdUser(?User $fk_id_user): self
     {
         $this->fk_id_user = $fk_id_user;
+
+        return $this;
+    }
+
+    public function getAdresseComplete(): ?string
+    {
+        return $this->adresseComplete;
+    }
+
+    public function setAdresseComplete(string $adresseComplete): self
+    {
+        $this->adresseComplete = $adresseComplete;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Reservations[]
+     */
+    public function getReservations(): Collection
+    {
+        return $this->reservations;
+    }
+
+    public function addReservation(Reservations $reservation): self
+    {
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations[] = $reservation;
+            $reservation->setFkIdAdresse($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservation(Reservations $reservation): self
+    {
+        if ($this->reservations->removeElement($reservation)) {
+            // set the owning side to null (unless already changed)
+            if ($reservation->getFkIdAdresse() === $this) {
+                $reservation->setFkIdAdresse(null);
+            }
+        }
 
         return $this;
     }

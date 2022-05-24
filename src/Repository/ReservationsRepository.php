@@ -2,9 +2,10 @@
 
 namespace App\Repository;
 
+use App\Entity\Adresse;
 use App\Entity\Reservations;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @method Reservations|null find($id, $lockMode = null, $lockVersion = null)
@@ -18,6 +19,8 @@ class ReservationsRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Reservations::class);
     }
+
+    
 
     // /**
     //  * @return Reservations[] Returns an array of Reservations objects

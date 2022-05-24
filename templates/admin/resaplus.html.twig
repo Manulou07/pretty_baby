@@ -20,7 +20,7 @@
             <tbody>
                 <tr>
                     <td class="align-middle">{{ reservation.dateResa|date('d/m/Y') }}</td>
-                    <td class="align-middle">{{ reservation.datePrestation|date('d/m/Y') }}</td>
+                    <td class="align-middle">{{ reservation.datePrestation.dateDispo|date('d/m/Y') }}</td>
                     <td class="align-middle">{{ reservation.fkIdForfait.typeForfait }}</td>
                     <td class="align-middle">{{ reservation.fkIdUser.nom }}  </td>
                     <td class="align-middle">{{ reservation.fkIdUser.telephone }}</td>

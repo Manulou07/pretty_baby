@@ -20,7 +20,7 @@
             {% for resa in reservations|reverse %}
                 <tr>
                     <td class="align-middle">{{ resa.dateResa|date('d/m/Y') }}</td>
-                    <td class="align-middle">{{ resa.datePrestation|date('d/m/Y') }}</td>
+                    <td class="align-middle">{{ resa.datePrestation.dateDispo|date('d/m/Y') }}</td>
                     <td class="align-middle">{{ resa.fkIdForfait.typeForfait }}</td>
                     <td class="align-middle">{{ resa.fkIdUser.email }}</td>
                     <td class="align-middle">

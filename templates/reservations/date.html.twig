@@ -33,7 +33,12 @@
                 {{ form_start(resaForm) }}
                     <div class="row">
                         <div class="col-5">
-                            
+                            {{ form_row(resaForm.fkIdAdresse, {'label': 'Selectionnez votre adresse:'}) }}
+                        </div>
+                        <div class="col-10 mb-5">
+                            <a href="{{ path('resa_adresse_create') }}" class="btnform">Ou cliquez pour ajouter une adresse</a>
+                        </div>
+                        <div class="col-5">
                             {{ form_row(resaForm.date_prestation, {'label': 'Date de la prestation:'}) }}
                         </div>
                         <div class="col-5">
@@ -42,11 +47,13 @@
                         <div class="col-10">
                             {{ form_row(resaForm.msg_resa, {'label': 'Message:'}) }}
                         </div>
+                        
                     </div>
                     <div class="btnformulaire">
                         <button class="btn btnform br-4">suivant</button>
                     </div>
                 {{ form_end(resaForm) }}
+                
  
             </div>
         </div>

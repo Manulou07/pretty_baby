@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} - Commentaires{% endblock %}
+
+{% block body %}
+    <section class="container-fluid" id="reservation">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>Laissez votre commentaire</h1>
+            </div>
+        
+            <div class="col-5">
+                <a href="{{ path('home') }}">
+                <img class="logocontact" src="{{ asset('logo/logo.png') }}" alt="logo du site">
+                </a>
+            </div>
+        
+            <div class="col-7">
+                {{ form_start(commentForm) }}
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h2>
+                                {{ realisation.titre }}
+                            </h2>
+                        </div>
+                        <div class="col7">
+                            
+                        {{ form_row(commentForm.comment,  {'label': 'Votre commentaire:'}) }}
+                        </div>
+                        <div class="col-6  offset-3 d-flex justify-content-end">
+                            <button class="btn btn-success m-3">Enregistrer</button>
+                        </div> 
+                    </div>
+                {{ form_end(commentForm) }}
+            </div>
+        </div>
+    </section>
+{% endblock %}

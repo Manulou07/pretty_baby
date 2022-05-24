@@ -11,6 +11,7 @@
                 <h2>ADRESSES</h2>
                 
             </div>
+
             <div class="col-6 offset-5 p-4">
                 <h5><b>Adresse</b> -> Choix de la date -> Paiement</h5>
             </div>
@@ -32,13 +33,14 @@
                         </div>
                     {% endfor %}
                 {% endfor %}
+
                 {{ form_start(resaFormadresse) }}
                     <div class="row">
                         <div class="col-6 offset-2 p-4">
-                            <h5>Veuillez renseignez votre adresse</h5>
+                            <h4>Veuillez renseignez votre adresse</h4>
                         </div>
                         <div class="col-5">
-                            {{ form_row(resaFormadresse.numero, {'label': 'Numero de la rue:'}) }}
+                            {{ form_row(resaFormadresse.numero, {'label': 'Numero de la rue:', 'placeholder': 'rue,avenue...'}) }}
                         </div>
                         <div class="col-5">
                             {{ form_row(resaFormadresse.type, {'label': 'Type de voie:'}) }}
@@ -52,6 +54,7 @@
                         <div class="col-5">
                             {{ form_row(resaFormadresse.ville, {'label': 'Ville:'}) }}
                         </div>
+                      
                     </div>  
                     <div class="btnformulaire">
                         <button class="btn btnoffres">suivant</button>

@@ -85,12 +85,12 @@ a {
 
 }
 #services{
-    background-color:#FAE6DE;
+    background-color:#F6EFEF;
     
 }
 
 #divservice{
-    background-color: #F6EFEF;
+    background-color: #FAE6DE;
 }
 
 #realisations {
@@ -105,7 +105,7 @@ justify-content: center;
 }
 
 #offres{
-    background-color: #F6EFEF;
+    background-color: #FAE6DE;
 }
 
 #offres h3{
@@ -151,17 +151,17 @@ justify-content: center;
     }
 
 .btnform{
-background-color:#FAE6DE;
+background-color:#444241;
 border-radius:5px;
-color:#444241;
+color:#FAE6DE;
 padding:5px 25px 5px 25px;
 box-shadow: 5px 5px 5px black;
 }
 
 .btnform:hover {
 
-background-color:#444241;
-color:#FAE6DE;
+background-color:#FAE6DE;
+color:#444241;
 box-shadow: 10px 10px 10px black;
 }
        
@@ -206,6 +206,6 @@ margin: 1px;
    }
 
 #livredor{
-    background-color: #F6EFEF;
+    background-color: #FAE6DE;
 
 }

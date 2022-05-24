@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} - Coordonnées{% endblock %}
+
+{% block body %}
+    <section class="container-fluid" id="reservation">
+        <div class="row">
+            <div class="col-8 offset-4">
+                {% for label, messages in app.flashes %} 
+                    {% for message in messages %}
+                        <div class="flash-{{ label }} bg-{{ label }} text-light p-3 mb-5 rounded text-center col-6">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+            
+            <div class="col-12">
+                <h2>LISTING DES COORDONNEES</h2>
+            </div>
+            
+            <div class="col-5">
+                <div>
+                    <a href="{{ path('home') }}">
+                    <img class="logocontact" src="{{ asset('logo/logo.png') }}" alt="logo du site">
+                    </a>
+                </div>
+            </div>
+            <div class="col-7">
+                <table class="table text-center table-hover table-sm">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Téléphone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for coordonnee in coordonnees %}
+                            <tr>
+                                <td class="align-middle">{{ coordonnee.email }}</td>
+                                <td class="align-middle">{{ coordonnee.nom }}</td>
+                                <td class="align-middle">{{ coordonnee.prenom }}</td>
+                                <td class="align-middle">{{ coordonnee.telephone }}</td>
+                                <td class="align-middle">
+                                    <a href="{{ path('coordonnee_update') }}" class="btn btn-primary m-2">Modifier</a>
+                                    <a href="{{ path('coordonnee_delete') }}" class="btn btn-danger m-2">Supprimer Mon Compte</i></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            
+                <div class="d-flex justify-content-end my-5">
+                    <a href="{{ path('user') }}" class="btn btnform">Retour</a>
+                </div>
+            </div>
+        </div>
+    </section>
+     
+{% endblock %}

@@ -72,6 +72,29 @@
         </div>
     </section>
  
+    <section class="container-fluid" id="livredor">
+        <div class="row p-4">
+            <div class="col-12">
+                <h2>COMMENTAIRES CLIENT</h2>
+            </div>
+            {% for comment in comments|reverse %}
+                {% if comment.publish  == true %}
+                    <div class="col-4 ">
+                        <div class="card text-center" id="divoffres">
+                            <div class="card-body">
+                                <h2 class="card-title">{{ comment.fkidrealisations.titre}}</h2>
+                                <p class="card-text"><i class="fas fa-quote-left"></i> {{ comment.comment }} <i class="fas fa-quote-right"></i></p>
+                            </div>
+                            <div class="card-body text-center p-4" >
+                                <a href="{{ path('photo_all', {'id': comment.fkidrealisations.id}) }}" class="btnoffres">Voir les photos</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+    
     <section class="container-fluid" id="services">
         <div class="row" >
             <div class="col-12">
@@ -145,17 +168,7 @@
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group">Un pack décoration</li>
                                         <li class="list-group">Un pack souvenir</li>
-                                        <li class="list-group"> </li>
-                                        <li class="list-group"> </li>
                                     </ul>
-                                </div>
-                                    
-                                <div class="row p-4">
-                                    <div class="col-4"></div>
-                                    <div class="col-4">
-                                        <a class="btnoffres" href="{{ path('resa_adresse') }}">RESERVEZ</a>
-                                    </div>
-                                    <div class="col-4"></div>
                                 </div>
                             {% elseif forfait.id == 2 %}
                                 <div class="row p-4">
@@ -163,16 +176,7 @@
                                         <li class="list-group">Un pack décoration</li>
                                         <li class="list-group">Un pack souvenir</li>
                                         <li class="list-group">Un pack REPAS</li>
-                                        <li class="list-group"> </li>
                                     </ul>
-                                </div>
-
-                                <div class="row p-4">
-                                    <div class="col-4"></div>
-                                    <div class="col-4">
-                                        <a class="btnoffres" href="{{ path('resa_adresse') }}">RESERVEZ</a>
-                                    </div>
-                                    <div class="col-4"></div>
                                 </div>
                             {% else %}
                                 <div class="row p-4">
@@ -183,76 +187,17 @@
                                         <li class="list-group">Une scéance Photo</li>
                                     </ul>
                                 </div>
-
-                                <div class="row p-4">
-                                    <div class="col-4"></div>
-                                    <div class="col-4">
-                                        <a class="btnoffres" href="{{ path('resa_adresse') }}">RESERVEZ</a>
-                                    </div>
-                                    <div class="col-4"></div>
-                                </div>
                             {% endif %}
                         </div>
                     </div>
                 </div>
             {% endfor %}
-                    
-        </div>
-    </section>
-    
-    <section class="container-fluid" id="contact">
-        <div class="row">
-            <div class="col-12">
-                <h2>NOUS CONTACTER</h2>
-            </div>
-            <div class="col-6">
-                <div class="divcontact">
-                    <a href="index.html">
-                    <img class="logocontact" src="logo/logo.png" alt="logo du site">
-                    </a>
+            <div class="row p-4">
+                <div class="col-12 text-center">
+                    <a class="btnform" href="{{ path('resa_adresse') }}">RESERVEZ</a>
                 </div>
-            </div>
-            <div class="col-6 p-2">
-                <div class="formulaire">
-                    <form method="post" action="formulairecontact.php" id="form">
-                        <div class="tabcontact">
-                                <input type="text" class="tabform" name="nom" placeholder="Votre Nom*">
-                                <input type="text" class="tabform" name="prenom" placeholder="Votre Prénom*">
-                                <input type="email" class="tabform" name="email" placeholder="Votre Email*">
-                                <input type="tel" class="tabform" name="telephone" placeholder="Votre numero de telephone*">
-                                <textarea name="comment" class="tabform" cols="80" rows="10" placeholder="Votre message..."></textarea>
-                        
-                            <div class="btnformulaire">
-                                <input type="reset" class="btnform" value="EFFACER">
-                                <input type="submit" class="btnform" value="ENVOYER">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            </div>   
         </div>
     </section>
-    
-    <section class="container-fluid" id="livredor">
-        <div class="row p-4">
-            <div class="col-12">
-                <h2>COMMENTAIRES CLIENT</h2>
-            </div>
-            {% for comment in comments|reverse %}
-                {% if comment.publish  == true %}
-                    <div class="col-4 ">
-                        <div class="card text-center" id="divoffres">
-                            <div class="card-body">
-                                <h2 class="card-title">{{ comment.fkidrealisations.titre}}</h2>
-                                <p class="card-text"><i class="fas fa-quote-left"></i> {{ comment.comment }} <i class="fas fa-quote-right"></i></p>
-                            </div>
-                            <div class="card-body text-center p-4" >
-                                <a href="{{ path('photo_all', {'id': comment.fkidrealisations.id}) }}" class="btnoffres">Voir les photos</a>
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-        </div>
-    </section>
+      
 {% endblock %}

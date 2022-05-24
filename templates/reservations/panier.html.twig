@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %} - Reservations{% endblock %}
+
+{% block body %}
+    <section class="container-fluid" id="reservation">
+        <div class="row">
+            
+            <div class="col-12">
+                <h2>RECAPITULATIF DE VOTRE RESERVATION</h2>
+            </div>
+            <div class="col-6 offset-5 p-4">
+                <h5>Adresse -> Choix de la date -> <b>Paiement</b></h5>
+            </div>
+            <div class="col-5">
+                <div>
+                    <a href="{{ path('home') }}">
+                    <img class="logocontact" src="{{ asset('logo/logo.png') }}" alt="logo du site">
+                    </a>
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="col-8">
+                    <table class="table align-middle">
+                        <thead class="text-center table-secondary">
+                            <tr class="fw-bold">
+                                <th >NUMERO DE RESERVATION</th>
+                                <th >TYPE DE FORFAIT</th>
+                                <th >PRIX PRESTATION</th>
+                                <th >DATE DE LA PRESTATION</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            <td class=" align-middle">{{ cart.id }}</td>
+                            <td class=" align-middle">{{ cart.fkIdForfait.typeForfait }}</td>
+                            <td class=" align-middle">{{ cart.fkIdForfait.prixForfait }} €</td>
+                            <td class=" align-middle">{{ cart.datePrestation.dateDispo|date('d/m/Y')}}</td>
+                        </tbody>
+                    </table>
+                </div>  
+                <div class="col-8 p-4">  
+                    <p>Bravo <b>{{ cart.fkIdUser.prenom }}</b> votre Réservation est bien prise en compte.</p>
+                    <p> Veuillez cliquer sur Reserver pour confirmer et payer celle ci</p>
+                </div> 
+                <div class="text-center col-8">
+                    <a href="{{ path('paiement') }}" class="btn btnform">RESERVER</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

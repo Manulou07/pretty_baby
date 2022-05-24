@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} - Reservations{% endblock %}
+
+{% block body %}
+<section class="container-fluid" id="reservation">
+    <div class="row">
+        <div class="col-8 offset-4">
+            {% for label, messages in app.flashes %} 
+                {% for message in messages %}
+                    <div class="flash-{{ label }} bg-{{ label }} text-light p-3 mb-5 rounded text-center col-6">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+           
+        <div class="col-12">
+            <h2>LISTING DES RESERVATIONS</h2>
+        </div>
+        
+        <div class="col-5">
+            <div>
+                <a href="{{ path('home') }}">
+                <img class="logocontact" src="{{ asset('logo/logo.png') }}" alt="logo du site">
+                </a>
+            </div>
+        </div>
+        {% if reservations is empty %}
+            <div class="col-7">
+                <p>Vous n'avez pas encore de reservations </p>
+            </div>
+        {% else %}
+            <div class="col-7">
+                <table class="table text-center table-hover table-sm">
+                    <thead>
+                        <tr>
+                            <th>N° de reservations</th>
+                            <th>Forfait</th>
+                            <th>Date de la prestation</th>
+                            <th>Date de la reservation</th>
+                            <th>Action</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for reservation in reservations %}
+                            <tr>
+                                <td class="align-middle">{{ reservation.id }}</td>
+                                <td class="align-middle">{{ reservation.fkIdForfait.prixForfait }} €</td>
+                                <td class="align-middle">{{ reservation.datePrestation.dateDispo|date('d/m/Y') }}</td>
+                                <td class="align-middle">{{ reservation.dateResa|date('d/m/Y') }}</td>
+                                <td class="align-middle">                             
+                                    {% if reservation.datePrestation.dateDispo < date %}
+                                        {% for realisation in realisations %}
+                                            <a href="{{ path('comments_create', {'id': realisation.id}) }}" class="btn btn-primary m-2 {% if comments is not empty %}disabled{% endif %}">Laisser un avis</i></a>
+                                        {% endfor %}
+                                        
+                                    {% else %}
+                                        <a href="{{ path('reservation_delete', {'id': reservation.id}) }}" class="btn btn-danger m-2">Annuler la reservation</i></a>
+                                    {% endif %} 
+                                </td> 
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endif %} 
+        <div class="d-flex justify-content-end my-5">
+            <a href="{{ path('user') }}" class="btn btnform">Retour</a>
+        </div>
+    </div>
+</section>  
+{% endblock %}

@@ -5,23 +5,32 @@ namespace App\Controller;
 use App\Entity\Images;
 use App\Entity\Realisations;
 use App\Form\RealisationsType;
+use App\Security\EmailVerifier;
+use Symfony\Component\Mime\Address;
 use App\Repository\ImagesRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\RealisationsRepository;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class RealisationsController extends AbstractController
 {
+    private EmailVerifier $emailVerifier;
+
+    public function __construct(EmailVerifier $emailVerifier)
+    {
+        $this->emailVerifier = $emailVerifier;
+    }
+    
     #[Route('/realisations', name: 'realisations')]
     public function index(RealisationsRepository $realisationsRepository): Response
     {
         $realisations = $realisationsRepository->findAll();
         
-        return $this->render('admin/reservations.html.twig', [
+        return $this->render('realisations/index.html.twig', [
             'realisations' => $realisations,
         ]);
     }
@@ -86,7 +95,16 @@ class RealisationsController extends AbstractController
                 }
             }
             $manager->flush();
+            $user = $realisation->getfkIdUser();
 
+            $this->emailVerifier->sendEmailComments('app_verify_email', $user,
+            (new TemplatedEmail())
+                ->from(new Address('desousa.emmanuel@gmail.com', 'Votre avis sur Pretty Baby'))
+                ->to($user->getEmail())
+                ->subject('Votre avis compte')
+                ->htmlTemplate('realisations/avis_email.html.twig')
+                               
+        );
             $this->addFlash('success', 'Le contenu a bien été ajoutée');
             return $this->redirectToRoute('admin_realisations_index');
         }

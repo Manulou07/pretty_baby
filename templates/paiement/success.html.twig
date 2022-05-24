@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}paiement accepté{% endblock %}
+
+{% block body %}
+    <section class="container-fluid" id="reservation">
+        <div class="row">
+            <div class="col-6 offset-4 p-5">
+                    <h1>PRETTY BABY- paiement accepté</h1>
+            </div>
+
+            <div class="col-5 p-5">
+                <a href="{{ path('home') }}"><img class="logocontact" src="{{ asset('logo/logo.png') }}" alt="logo du site"></a>
+            </div>
+
+            <div class="col-7 p-5">
+                <p>Le paiement a été accepté et nous vous en remercions.</p>
+                <p>Une facture vous sera envoyée à l'adresse email communiquée lors de votre achat. Ce processus peut prendre quelques minutes. </p>
+                <p>Si toutefois vous ne recevez votre facture, vous pouvez contacter un administrateur du site via le <a href="{{ path('contact') }}" class="text-primary">formulaire de contact</a>.</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

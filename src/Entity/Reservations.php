@@ -2,8 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\ReservationsRepository;
+use App\Entity\User;
+use App\Entity\Adresse;
+use App\Entity\Forfait;
+use App\Entity\Disponibilite;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ReservationsRepository;
 
 #[ORM\Entity(repositoryClass: ReservationsRepository::class)]
 class Reservations
@@ -29,6 +33,10 @@ class Reservations
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'reservations')]
     private $fk_id_user;
+
+    #[ORM\ManyToOne(targetEntity: Adresse::class, inversedBy: 'reservations')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $fk_id_adresse;
 
     public function getId(): ?int
     {
@@ -96,6 +104,18 @@ class Reservations
     public function setFkIdUser(?User $fk_id_user): self
     {
         $this->fk_id_user = $fk_id_user;
+
+        return $this;
+    }
+
+    public function getFkIdAdresse(): ?Adresse
+    {
+        return $this->fk_id_adresse;
+    }
+
+    public function setFkIdAdresse(?Adresse $fk_id_adresse): self
+    {
+        $this->fk_id_adresse = $fk_id_adresse;
 
         return $this;
     }

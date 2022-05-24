@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} - Contact{% endblock %}
+
+{% block body %}
+    <section class="container-fluid" id="contact">
+        <div class="row">
+            <div class="col-12">
+                <h2>CONTACT</h2>
+            </div>
+            {% for label, messages in app.flashes %} 
+                {% for message in messages %}
+                    <div class="col-3"></div>
+                    <div class="flash-{{ label }} bg-{{ label }} text-light p-3 mb-5 rounded text-center col-6">
+                        {{ message }}
+                    </div>
+                    <div class="col-3"></div>
+                {% endfor %}
+            {% endfor %}
+            <div class="col-5 p-5">
+                <div>
+                    <a href="{{ path('home') }}">
+                    <img class="logocontact" src="{{ asset('logo/logo.png') }}" alt="logo du site">
+                    </a>
+                </div>
+            </div>
+            <div class="col-7">
+                {{ form_start(contactForm) }}
+                    <div class="row my-5">
+                        <div class="col-10 mb-3">
+                            {{ form_row(contactForm.objet, {label: 'Objet de votre demande:'}) }}
+                        </div>
+                        <div class="col-5">
+                            {{ form_row(contactForm.nom, {label: 'Nom:'}) }}
+                        </div>
+                        <div class="col-5 mb-3">
+                            {{ form_row(contactForm.prenom, {label: 'Prénom:'}) }}
+                        </div>
+                        <div class="col-5 mb-3">
+                            {{ form_row(contactForm.email, {label: 'Email:'}) }}
+                        </div>
+                        <div class="col-5 mb-3">
+                            {{ form_row(contactForm.telephone, {label: 'Téléphone:'}) }}
+                        </div>
+                        
+                        <div class="col-10 mb-3">
+                            {{ form_row(contactForm.message, {label: 'Votre message:'}) }}
+                        </div>
+                                        
+                        <div class="col-10 text-end">
+                            <input type="submit" class="btn btn-secondary" value="Envoyer">
+                        </div>
+                    </div>
+                {{ form_end(contactForm) }}
+            </div>
+        </div>
+    </section>
+{% endblock %}

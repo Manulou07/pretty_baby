@@ -19,6 +19,20 @@ class AdresseRepository extends ServiceEntityRepository
         parent::__construct($registry, Adresse::class);
     }
 
+   /**
+     * @return Adresse[] returns a array of adresse of client connected
+     */
+    public function getAdresse($value)
+    {
+        return $this->createQueryBuilder('fac')
+            ->andWhere('fac.fk_id_user = :val')
+            ->setParameter('val', $value) ;
+           
+        
+    }
+  
+    
+
     // /**
     //  * @return Adresse[] Returns an array of Adresse objects
     //  */

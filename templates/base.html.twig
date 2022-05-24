@@ -25,8 +25,8 @@
                     <a class="btn p-5" href="{{ path('home') }}#realisations">NOS REALISATIONS</a>
                     <a class="btn p-5" href="{{ path('home') }}#offres">NOS OFFRES</a>
                     <a href="{{ path('home') }}"><img class="logo" src="{{ asset('logo/logo.png') }}" alt="logo du site"></a>
-                    <a class="btn p-5" href="{{ path('home') }}#contact">NOUS CONTACTER</a>
-                    <a class="btn p-5" href="{{ path('resa_adresse') }}">RESERVEZ</a>
+                    <a class="btn p-5" href="{{ path('contact') }}">NOUS CONTACTER</a>
+                    <a class="btn p-5" href="{{ path('user') }}">CONNEXION</a>
                 </nav>
             </div> 
             <a href="#header">
@@ -34,10 +34,24 @@
             </a>
         </header>
 
-        <main class="container-fluid" id="main">
-          
-            {% block body %}{% endblock %}
-            
+        <main class="container-fluid">
+            <div class="row">
+                <div class="col-12" id="content">
+                    <div class="row p-5">
+                        {% for label, messages in app.flashes %} 
+                            {% for message in messages %}
+                                <div class="col-3"></div>
+                                <div class="flash-{{ label }} bg-{{ label }} text-light p-3 mb-5 rounded text-center col-6">
+                                    {{ message }}
+                                </div>
+                                <div class="col-3"></div>
+                            {% endfor %}
+                        {% endfor %}
+                       {% block body %}{% endblock %}
+                    </div>
+                </div>
+
+            </div>
         </main>
 
         <footer class="container-fluid" id="footer">

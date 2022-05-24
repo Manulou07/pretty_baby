@@ -2,26 +2,25 @@
 
 namespace App\Form;
 
-use DateTime;
-use App\Entity\User;
+use App\Entity\Adresse;
 use App\Entity\Forfait;
 use App\Entity\Reservations;
 use App\Entity\Disponibilite;
+use App\Repository\AdresseRepository;
 use Symfony\Component\Form\AbstractType;
 use App\Repository\DisponibiliteRepository;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ReservationsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        
         $builder
-         
-            
             ->add('date_prestation', EntityType::class, [
                 'required' => true,
                 'class' => Disponibilite::class,
@@ -43,6 +42,18 @@ class ReservationsType extends AbstractType
                 'class' => Forfait::class,
                 'choice_label' => 'typeForfait'
             ])
+            
+
+            ->add('fkIdAdresse', EntityType::class, [
+                'required' => false,
+                'class' => Adresse::class,
+                'query_builder' => function(AdresseRepository $adresseRepository){
+                return $adresseRepository->getAdresse($this->getUser());
+                },
+                'choice_label' => 'adresseComplete',
+            ])
+     
+
         ;
     }
 

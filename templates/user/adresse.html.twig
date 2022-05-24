@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} - Adresses{% endblock %}
+
+{% block body %}
+<section class="container-fluid" id="reservation">
+    <div class="row">
+        <div class="col-8 offset-4">
+            {% for label, messages in app.flashes %} 
+                {% for message in messages %}
+                    <div class="flash-{{ label }} bg-{{ label }} text-light p-3 mb-5 rounded text-center col-6">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+           
+        <div class="col-12">
+            <h2>LISTING DES ADRESSES</h2>
+        </div>
+        
+        <div class="col-5">
+            <div>
+                <a href="{{ path('home') }}">
+                <img class="logocontact" src="{{ asset('logo/logo.png') }}" alt="logo du site">
+                </a>
+            </div>
+        </div>
+        {% if adresses is empty %}
+        <div class="col-7">
+            <p>Vous n'avez pas encore d'adresse </p>
+        </div>
+        {% else %}
+        <div class="col-7">
+            <table class="table text-center table-hover table-sm">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Adresse</th>
+                        <th>Actions</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for adresse in adresses %}
+                        <tr>
+                            <td class="align-middle">{{ loop.revindex }}</td>
+                            <td class="align-middle">{{ adresse.adresseComplete }}</td>
+                            <td class="align-middle">
+                                <a href="{{ path('adresse_update', {'id': adresse.id}) }}" class="btn btn-primary m-2">Modifier</a>
+                                <a href="{{ path('adresse_delete', {'id': adresse.id}) }}" class="btn btn-danger m-2">Supprimer</i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+        <div class="d-flex justify-content-end my-5">
+            <a href="{{ path('user') }}" class="btn btnform">Retour</a>
+            <a href="{{ path('adresse_create') }}" class="btn btnform">Ajouter une Adresse</a>
+        </div>
+    </div>
+</section>
+    
+   
+      
+{% endblock %}

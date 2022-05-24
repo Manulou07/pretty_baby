@@ -23,20 +23,20 @@ class CommentsType extends AbstractType
                     'maxLength' => 65535
                 ]
             ])
-            ->add('publish', Boolean::class,[
-                'required' => true,
-                'label' => 'Publié',
-                'required' => true,
-                 'empty_value' => false,
-                 'choices_as_values' => true,
-            ])
+            // ->add('publish', Boolean::class,[
+            //     'required' => true,
+            //     'label' => 'Publié',
+            //     'required' => true,
+            //      'empty_value' => false,
+            //      'choices_as_values' => true,
+            // ])
            
             
-            ->add('fkidrealisations', EntityType::class, [
-                'required' => true,
-                'class' => Realisations::class,
-                'choice_label' => 'titre'
-             ])
+            // ->add('fkidrealisations', EntityType::class, [
+            //     'required' => true,
+            //     'class' => Realisations::class,
+            //     'choice_label' => 'titre'
+            //  ])
         ;
     }
 
