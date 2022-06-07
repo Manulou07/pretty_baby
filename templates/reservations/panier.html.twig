@@ -29,6 +29,7 @@
                                 <th >TYPE DE FORFAIT</th>
                                 <th >PRIX PRESTATION</th>
                                 <th >DATE DE LA PRESTATION</th>
+                                <th >ADRESSE</th>
                             </tr>
                         </thead>
                         <tbody class="text-center">
@@ -36,6 +37,7 @@
                             <td class=" align-middle">{{ cart.fkIdForfait.typeForfait }}</td>
                             <td class=" align-middle">{{ cart.fkIdForfait.prixForfait }} €</td>
                             <td class=" align-middle">{{ cart.datePrestation.dateDispo|date('d/m/Y')}}</td>
+                            <td class=" align-middle">{{ cart.fkIdAdresse.adresseComplete }} </td>
                         </tbody>
                     </table>
                 </div>  

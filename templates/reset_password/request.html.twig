@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Reinitialisation mot de passe{% endblock %}
+
+{% block body %}
+    <section class="container-fluid" id="reservation">
+        <div class="row">
+            <div class="col-8 offset-4">
+                {% for flashError in app.flashes('reset_password_error') %}
+                    <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+                {% endfor %}
+            </div>
+            <div class="col-12 text-center p-5">
+                <h1>Reinitialisez votre mot de passe</h1>
+            </div>
+            <div class="col-5">
+                <div>
+                    <a href="{{ path('home') }}">
+                    <img class="logocontact" src="{{ asset('logo/logo.png') }}" alt="logo du site">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-7">
+                <br>
+                {{ form_start(requestForm) }}
+                    <div class="row p-5">
+                        <div class="col-12">
+                            <p>
+                            Entrez votre email et nous vous enverrons un lien de reinitialisation.
+                            </p>
+                        </div> 
+                        <div class="col-5">
+                        {{ form_row(requestForm.email) }}
+                        </div>
+                        
+                    </div> 
+                    <div class="btnformulaire">
+                        <button class="btn  btnform br-4">Envoyer</button>
+                    </div>
+                   
+                {{ form_end(requestForm) }}
+                
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -68,31 +68,42 @@ class CommentsController extends AbstractController
     }
 
     #[Route('/comments/create/{id}', name: 'comments_create')]
-    public function create(Request $request,RealisationsRepository $realisationRepository, ManagerRegistry $managerRegistry,int $id)
+    public function create(Request $request,CommentairesRepository $commentsRepository,RealisationsRepository $realisationRepository, ManagerRegistry $managerRegistry,int $id)
     {       
             $comment = new Commentaires();
             $form = $this->createForm(CommentsType::class, $comment); 
-            $realisation = $realisationRepository->find($id);
-            $form->handleRequest($request);
-            
-            if ($form->isSubmitted() && $form->isValid()) {
+            $realisation = $realisationRepository->findOneBy(['fkIdReservations'=> $id]);
+          
+            $id = $commentsRepository->findOneBy(['fk_id_realisations'=>$realisation]);
 
-                $comment->setPublish(false);
-                $comment->setFkIdRealisations($realisation);
-               
-                $manager = $managerRegistry->getManager();
-                $manager->persist($comment);
-                $manager->flush();
+            if ($id == null){
+                $form->handleRequest($request);
+                            
+                if ($form->isSubmitted() && $form->isValid()) {
 
-                $this->addFlash('success', 'Le commentaire à été créer, il sera publié par nos équipe dans les plus bref délai');
-                return $this->redirectToRoute('home');
-                }
+                    $comment->setPublish(false);
+                    $comment->setFkIdRealisations($realisation);
                 
-                return $this->render('comments/commentForm.html.twig', [
+                    $manager = $managerRegistry->getManager();
+                    $manager->persist($comment);
+                    $manager->flush();
+
+                    $this->addFlash('success', 'Le commentaire à été créer, il sera publié par nos équipe dans les plus bref délai');
+                    return $this->redirectToRoute('home');
+                    }
+                    
+            }else{
+                $this->addFlash('danger', 'Le commentaire existe déjà');
+                return $this->redirectToRoute('user');
+            }   
+            return $this->render('comments/commentForm.html.twig', [
                 'commentForm' => $form->createView(),
                 'realisation' =>$realisation,
                 'id' => $id
             ]);
+        
+           
+            
     }
 
   

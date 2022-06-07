@@ -16,22 +16,32 @@
             </div>
         
             <div class="col-7">
-                {{ form_start(commentForm) }}
-                    <div class="row">
+                <div class="row">
+                    {% if realisation is empty %}
+                        <div class="col-12 m-5 text-center">
+                            <p>Vous ne pouvez pas encore laissez de commentaire</p>
+                        </div>
+                    {% else %}
                         <div class="col-12 text-center">
                             <h2>
                                 {{ realisation.titre }}
                             </h2>
                         </div>
-                        <div class="col7">
-                            
-                        {{ form_row(commentForm.comment,  {'label': 'Votre commentaire:'}) }}
+                        <div class="col-7">
+                            {{ form_start(commentForm) }}
+                                {{ form_row(commentForm.comment,  {'label': 'Votre commentaire:'}) }}
+                                <div class="col-6 offset-3 d-flex justify-content-end">
+                                    <button class="btn btn-success m-3">Enregistrer</button>
+                                </div>
+                            {{ form_end(commentForm) }}
                         </div>
-                        <div class="col-6  offset-3 d-flex justify-content-end">
-                            <button class="btn btn-success m-3">Enregistrer</button>
+                    {% endif %}
+                        <div class="d-flex justify-content-end my-5">
+                            <a href="{{ path('reservation_index') }}" class="btn btnform m-2">Retour</a>
                         </div> 
+                
+                        
                     </div>
-                {{ form_end(commentForm) }}
             </div>
         </div>
     </section>

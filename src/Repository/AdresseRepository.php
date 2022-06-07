@@ -22,13 +22,12 @@ class AdresseRepository extends ServiceEntityRepository
    /**
      * @return Adresse[] returns a array of adresse of client connected
      */
-    public function getAdresse($value)
+    public function getAdresseClient($value)
     {
         return $this->createQueryBuilder('fac')
             ->andWhere('fac.fk_id_user = :val')
-            ->setParameter('val', $value) ;
-           
-        
+            ->setParameter('val', $value) 
+            ->orderBy('fac.id', 'DESC');       
     }
   
     

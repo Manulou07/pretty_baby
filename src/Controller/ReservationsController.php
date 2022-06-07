@@ -19,6 +19,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ReservationsController extends AbstractController
 {
+    
+
+
    #[Route('/admin/reservations', name: 'resa_list')]
     public function list(ReservationsRepository $reservationsRepository): Response
     {
@@ -117,37 +120,11 @@ class ReservationsController extends AbstractController
                
     }
      
-    // #[Route('/reservations/adresselist', name: 'resa_adressebis')]
-    // public function createbis(Request $request,ManagerRegistry $managerRegistry, AdresseRepository $adressesRepository,SessionInterface $sessionInterface)
-    // {   
-    //     $adresse = new Adresse();
-    //     $formadresse = $this->createForm(AdressesType::class, $adresse); 
-    //     $formadresse->handleRequest($request);
-
-    //     if($formadresse->isSubmitted() && $formadresse->isValid()){
-
-    //         $adresses = $adressesRepository->find($adresse->getId());
-    //         $adresse->setFkIdUser($this->getUser());
-    //         $manager = $managerRegistry->getManager();
-    //         $manager->persist($adresse);
-    //         $manager->flush();
-    //         $sessionInterface->set('adresse', $adresses->getId());
-    //         return $this->redirectToRoute('resa_date');
-    //     }
-            
-    //     return $this->render('reservations/adressebis.html.twig', [
-    //         'resaFormadresse' => $formadresse->createView()
-    //     ]);
-    // }
-         
-     
-     
     #[Route('/reservations/date', name: 'resa_date')]
-    public function date(AdresseRepository $adresseRepository, DisponibiliteRepository $dispoRepository,SessionInterface $sessionInterface, Request $request, ManagerRegistry $managerRegistry)
+    public function date(DisponibiliteRepository $dispoRepository,SessionInterface $sessionInterface, Request $request, ManagerRegistry $managerRegistry)
     {          
         $resa = new Reservations();
         $resa->setFkIdUser($this->getUser());
-       
         $form = $this->createForm(ReservationsType::class, $resa); 
         $form->handleRequest($request);  
        
@@ -167,9 +144,10 @@ class ReservationsController extends AbstractController
             return $this->redirectToRoute('resa_panier');
            
             }
-                       
+            
+            
             return $this->render('reservations/date.html.twig', [
-            'resaForm' => $form->createView(),
+            'resaForm' => $form->createView()
 
         ]);
     }

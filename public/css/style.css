@@ -18,6 +18,10 @@ padding:0;
 
 /* **************************************** MAIN **************************************** */
 
+p{
+    font-size: 20px;
+}
+
 #main {
     
     background-color: #F6EFEF;
@@ -27,6 +31,7 @@ padding:0;
     background-color:#FAE6De ;
          
 }
+
 #header{
     text-decoration: none;
 
@@ -58,25 +63,20 @@ a {
     text-decoration: none;
     color: black;
 }
-.presentation p{
-    font-size:20px;
-}
+
 
 #presentation{
-    background-color: #FAE6DE;
-        
+    background-color: #FAE6DE;        
 }
+
+
 
 #divpres{
     display:flex;
     align-items: center;
 }
 
-#carouselimg{
-    width: 80%;
-    margin: auto;
-    aspect-ratio: 4/3;
-}
+
 
 #icons{
     width: 150px;
@@ -208,4 +208,39 @@ margin: 1px;
 #livredor{
     background-color: #FAE6DE;
 
+}
+
+/* **************************************** media queries **************************************** */
+@media (min-width: 320px-xs-min) {
+    #carouselimg{
+        width: 80%;
+        margin: auto;
+        aspect-ratio: 4/3;
+    }
+
+}
+@media (min-width: 768px-sm-min) {
+    #carouselimg{
+        width: 80%;
+        margin: auto;
+        aspect-ratio: 4/3;
+    }
+
+}
+
+@media (min-width: 992px-md-min){
+    #carouselimg{
+        width: 80%;
+        margin: auto;
+        aspect-ratio: 4/3;
+    }
+   
+ }
+@media (min-width: 1200px-lg-min) {
+    #carouselimg{
+        width: 80%;
+        margin: auto;
+        aspect-ratio: 4/3;
+    }
+       
 }

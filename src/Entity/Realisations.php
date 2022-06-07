@@ -27,11 +27,12 @@ class Realisations
     #[ORM\OneToMany(mappedBy: 'relation', targetEntity: Images::class)]
     private $images;
 
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'realisations')]
-    private $fk_id_user;
-
     #[ORM\OneToOne(mappedBy: 'fk_id_realisations', targetEntity: Commentaires::class, cascade: ['persist', 'remove'])]
     private $commentaires;
+
+    #[ORM\OneToOne(targetEntity: Reservations::class, cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private $fkIdReservations;
 
     public function __construct()
     {
@@ -109,18 +110,6 @@ class Realisations
         return $this;
     }
 
-    public function getFkIdUser(): ?User
-    {
-        return $this->fk_id_user;
-    }
-
-    public function setFkIdUser(?User $fk_id_user): self
-    {
-        $this->fk_id_user = $fk_id_user;
-
-        return $this;
-    }
-
     public function getCommentaires(): ?Commentaires
     {
         return $this->commentaires;
@@ -134,6 +123,18 @@ class Realisations
         }
 
         $this->commentaires = $commentaires;
+
+        return $this;
+    }
+
+    public function getFkIdReservations(): ?Reservations
+    {
+        return $this->fkIdReservations;
+    }
+
+    public function setFkIdReservations(Reservations $fkIdReservations): self
+    {
+        $this->fkIdReservations = $fkIdReservations;
 
         return $this;
     }

@@ -111,12 +111,17 @@ class UserController extends AbstractController
     {
         $user = $userRepository->find($this->getUser());
 
+
         $manager = $managerRegistry->getManager();
+        
+        $this->container->get('security.token_storage')->setToken(null);
+
         $manager->remove($user);
+      
         $manager->flush();
 
         $this->addFlash('danger', 'Le compte a bien été supprimé');
-        return $this->redirectToRoute('app_logout');
+        return $this->redirectToRoute('home');
  
     }
 
@@ -157,16 +162,10 @@ class UserController extends AbstractController
     {
         $reservations = $reservationRepository->findBy(['fk_id_user'=> $this->getUser()]);
         $date = new \DateTime;
-        $realisations = $realisationRepository->findBy(['fk_id_user'=> $this->getUser()]);
-        foreach ($realisations as $realisation){
-            $comments = $commentsRepository->findBy(['fk_id_realisations'=> $realisation->getId()]);
-        }
-
+                   
         return $this->render('user/reservations.html.twig', [
             'reservations' => $reservations,
-            'date' => $date,
-            'realisations'=>$realisations,
-            'comments' => $comments
+            'date' => $date
         ]);
     }
 
@@ -174,10 +173,7 @@ class UserController extends AbstractController
     public function deleteresa(Reservations $reservation, ManagerRegistry $managerRegistry): Response
     {
         $manager = $managerRegistry->getManager();
-        // $dispo = $dispoRepository->find($reservation->getDatePrestation());
-        // $dispo->setIsBook(false);
-
-        // $manager->persist($dispo);
+      
         $manager->remove($reservation);
         $manager->flush();
          

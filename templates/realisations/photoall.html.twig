@@ -6,7 +6,7 @@
 
     <section class="row" id="realisations">
         <div class="col-12">
-            <h2>PHOTO BABY SHOWER</h2>
+            <h2>{{ realisation.titre }}</h2>
         </div>
         <div class="col-4 p-5">
             <img src="{{ asset('images/realisations/' ~ realisation.img) }}" alt="photo realisations" id="cardimg">       
@@ -16,6 +16,11 @@
                 <img src="{{ asset('images/realisations/' ~ image.nameimg) }}" alt="photo realisations" id="cardimg">       
             </div>
         {% endfor %}
+        <div class="row" >
+            <div class="col-12 p-4 text-center">
+            <a href="{{ path('realisations') }}" class="btnoffres">Retour</a>
+            </div>
+        </div>
 
   
     </section>

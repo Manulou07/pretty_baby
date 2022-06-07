@@ -119,4 +119,5 @@ class Reservations
 
         return $this;
     }
+
 }

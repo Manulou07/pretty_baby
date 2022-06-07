@@ -32,12 +32,12 @@ class CommentsType extends AbstractType
             // ])
            
             
-            // ->add('fkidrealisations', EntityType::class, [
-            //     'required' => true,
-            //     'class' => Realisations::class,
-            //     'choice_label' => 'titre'
-            //  ])
-        ;
+        //     ->add('fkidrealisations', EntityType::class, [
+        //         'required' => true,
+        //         'class' => Realisations::class,
+        //         'choice_label' => 'id'
+        //      ])
+         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

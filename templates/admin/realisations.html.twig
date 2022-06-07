@@ -26,7 +26,7 @@
                     <td class="align-middle"><img src="{{ asset('images/realisations/' ~ realisation.img) }}" alt="photo principale {{ realisation.titre }}"></td>
                     <td class="align-middle">
                         <a href="{{ path('rea_update', {'id': realisation.id}) }}" class="btn btn-primary m-2">Modifier</a>
-                        <a href="{{ path('rea_delete', {'id': realisation.id}) }}" class="btn btn-danger m-2">Supprimer</i></a>
+                        <a href="{{ path('rea_delete', {'id': realisation.id}) }}" class="btn btn-danger m-2" onclick=" return confirm('Etes vous sure?')">Supprimer</i></a>
                     </td>
                 </tr>
             {% endfor %}

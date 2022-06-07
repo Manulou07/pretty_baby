@@ -13,13 +13,14 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ReservationsType extends AbstractType
 {
+   
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        
+ 
+
         $builder
             ->add('date_prestation', EntityType::class, [
                 'required' => true,
@@ -43,18 +44,15 @@ class ReservationsType extends AbstractType
                 'choice_label' => 'typeForfait'
             ])
             
-
             ->add('fkIdAdresse', EntityType::class, [
-                'required' => false,
+                'required' => true,
                 'class' => Adresse::class,
-                'query_builder' => function(AdresseRepository $adresseRepository){
-                return $adresseRepository->getAdresse($this->getUser());
+                'query_builder' => function(AdresseRepository $adresse) {
+                    return $adresse->getAdresseClient($this->getUser());
                 },
-                'choice_label' => 'adresseComplete',
-            ])
-     
-
-        ;
+                'choice_label' => 'adresseComplete'
+                
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

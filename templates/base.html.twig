@@ -21,12 +21,18 @@
     <body>
         <header class="container-fluid" id="header">
             <div class="row">
-                <nav class="col-12 text-center" id="nav">
+                <nav class="col-sm-12 col-md-12 col-lg-12 text-center" id="nav">
                     <a class="btn p-5" href="{{ path('home') }}#realisations">NOS REALISATIONS</a>
                     <a class="btn p-5" href="{{ path('home') }}#offres">NOS OFFRES</a>
                     <a href="{{ path('home') }}"><img class="logo" src="{{ asset('logo/logo.png') }}" alt="logo du site"></a>
                     <a class="btn p-5" href="{{ path('contact') }}">NOUS CONTACTER</a>
-                    <a class="btn p-5" href="{{ path('user') }}">CONNEXION</a>
+                       
+                        {% if is_granted('ROLE_USER') %}
+                            <a class="btn p-5" href="{{ path('user') }}">PROFIL</a>
+                        {% else %}
+                            <a class="btn p-5" href="{{ path('app_login') }}">CONNEXION</a> 
+                        {% endif %}
+                   
                 </nav>
             </div> 
             <a href="#header">
@@ -36,7 +42,7 @@
 
         <main class="container-fluid">
             <div class="row">
-                <div class="col-12" id="content">
+                <div class="col-xs-12 col-sm-12 col-lg-12" id="content">
                     <div class="row p-5">
                         {% for label, messages in app.flashes %} 
                             {% for message in messages %}
@@ -62,7 +68,9 @@
                         <a href="ml.html">mentions legales</a></br>
                         <a href="dp.html">données personnelles</a></br>
                         <a href="cookies.html">cookies</a></br>
+                        {% if is_granted ('ROLE_ADMIN') %}
                         <a href="{{ path('admin') }}">admin</a>
+                        {% endif %}
                     </div>
                     <div class="col-4 text-center">
                         <a href="mailto:info@prettybaby.com">info@prettybaby.com</a>

@@ -30,14 +30,14 @@ class Adresse
     #[ORM\Column(type: 'string', length: 100)]
     private $ville;
 
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'adresses')]
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'adresses',cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private $fk_id_user;
 
     #[ORM\Column(type: 'string', length: 255)]
     private $adresseComplete;
 
-    #[ORM\OneToMany(mappedBy: 'fk_id_adresse', targetEntity: Reservations::class)]
+    #[ORM\OneToMany(mappedBy: 'fk_id_adresse', targetEntity: Reservations::class, cascade: ['persist', 'remove'])]
     private $reservations;
 
     public function __construct()

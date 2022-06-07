@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Forfait;
 use App\Entity\Disponibilite;
 use App\Form\DisponibiliteType;
 use Doctrine\Persistence\ManagerRegistry;
@@ -82,8 +81,6 @@ class DisponibiliteController extends AbstractController
     public function delete(Disponibilite $dispo, ManagerRegistry $managerRegistry): Response
     {
         $manager = $managerRegistry->getManager();
-
-        
         // suppression de l'objet en bdd
         $manager->remove($dispo);
         $manager->flush();

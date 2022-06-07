@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use App\Entity\Realisations;
+use App\Entity\Reservations;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -18,10 +19,10 @@ class RealisationsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('fkIdUser', EntityType::class, [
+            ->add('fkIdReservations', EntityType::class, [
                 'required' => true,
-                'class' => User::class,
-                'choice_label' => 'email'
+                'class' => Reservations::class,
+                'choice_label' => 'fkIdUser.email'
             ])
 
             ->add('img', FileType::class, [

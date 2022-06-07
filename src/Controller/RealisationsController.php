@@ -67,9 +67,9 @@ class RealisationsController extends AbstractController
       
 
         if ($form->isSubmitted() && $form->isValid()) {
-
+            
             $manager = $managerRegistry->getManager();
-
+         
             if (!empty($form['img']->getData())) {
                 $infoImg = $form['img']->getData(); 
                 $extensionImg = $infoImg->guessExtension(); 
@@ -95,7 +95,7 @@ class RealisationsController extends AbstractController
                 }
             }
             $manager->flush();
-            $user = $realisation->getfkIdUser();
+            $user = $realisation->getfkIdReservations()->getFkIdUser();
 
             $this->emailVerifier->sendEmailComments('app_verify_email', $user,
             (new TemplatedEmail())
