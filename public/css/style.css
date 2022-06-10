@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+
+*{
+font-family: 'Oswald', sans-serif;
+margin:0;
+padding:0;
+}
+
+/* .fleche{
+    width: 30px;
+    height: 30px;
+    position:fixed;
+    bottom: 55px;
+    right: 45px;
+    z-index: 1;
+} */
+
+/* **************************************** MAIN **************************************** */
+#nav{
+    display:flex;
+    justify-content:space-between;
+    text-decoration: none;
+    background-color:#FAE6De ;
+   
+}
+
+p{
+    font-size:1.2vw;
+}
+
+
+.imgCaroussel{
+    width: 70%;
+    margin: auto;
+    object-fit: contain;
+}
+
+#icons{
+    width: 50%;
+    margin: auto;
+    object-fit: contain;
+}
+
+
+.btn{
+    border: none;
+    opacity: 0.6;
+    letter-spacing: 3px;
+    transition: 0.1s;
+}
+
+.btn:hover {
+opacity:1 ;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+#presentation,
+#livredor,
+#footer,
+#divservice,
+#offres,
+#contact{
+    background-color: #FAE6DE;        
+}
+
+#divpres{
+    display:flex;
+    align-items: center;
+}
+
+#realisations,
+#services{
+    background-color: #F6EFEF;
+}
+
+#divrealisation {
+    background-color: #F8D9CC;
+   
+  }
+  
+#comments {
+    padding:1vw;
+  }
+
+#divoffres{
+    background-color: #faccb7;
+   
+}
+#divoffres1{
+    background-color: #f7b69b;
+      
+}
+
+.btnoffres{
+    background-color:#FAE6DE;
+    border:1PX;
+    border-radius:5px;
+    color:#444241;
+    box-shadow: 5px 5px 5px black;
+    text-decoration: none;
+
+}
+
+.btnoffres:hover {
+ 
+    background-color:#444241;
+    color:#FAE6DE;
+    box-shadow: 10px 10px 10px black;
+    }
+
+.btnform{
+background-color:#444241;
+border-radius:5px;
+color:#FAE6DE;
+box-shadow: 5px 5px 5px black;
+}
+
+.btnform:hover {
+
+background-color:#FAE6DE;
+color:#444241;
+box-shadow: 10px 10px 10px black;
+}
+
+.tabcontact {
+    display:flex;
+    flex-direction: column;
+    }
+   
+    
+.tabform{
+padding: 1em;
+margin:5px;
+border-radius: 10px;
+}
+
+.btnformulaire{
+    display: flex;
+    justify-content: space-around;
+    padding:10px;
+}
+
+#footer a{
+text-decoration: none;
+color:black;
+margin: 1px;
+}
+
+#reservation{
+    background-color: #FAE6DE;
+    width: 100%;
+    margin: auto;
+}
+.logo{
+    width: 150%;
+    margin: auto;
+    object-fit: contain;
+}
+#logomenu{
+    display:flex;
+    align-items:center;
+}
+
+#menu{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+}
+
+
+
+/* **************************************** media queries **************************************** */
+
+@media screen and (max-width:425px) {
+
+p{
+    font-size:4vw;
+}
+.btn{
+    font-size:3vw;
+}
+
+#menu{
+    display:flex;
+    justify-content:flex-end;
+    flex-direction:column;
+}
+#menufooter{
+
+    display:flex;
+    gap: 30px;
+}
+
+.logo{
+    width: 300%;
+    margin: auto;
+    object-fit: contain;
+}
+}
+
+@media (min-width: 425.1px) and (max-width:768px) {
+    
+    .logo{
+        width: 200%;
+        margin: auto;
+        object-fit: contain;
+    }
+    #menu{
+        display:flex;
+        justify-content:end;
+        flex-direction:column;
+    }
+}

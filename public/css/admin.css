@@ -1,0 +1,64 @@
+/* **************************************** RESET **************************************** */
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type:circle;
+    
+}
+
+a {
+    text-decoration: none;
+}
+
+:root {
+    --color-black: #000000;
+    --color-light-grey: #BBBBBB;
+    --color-site: #FAE6De;
+}
+
+
+/* **************************************** NAV **************************************** */
+
+    
+
+
+    nav a {
+        color:var(--color-black);
+          
+    }
+
+        nav a:hover {
+            color: var(--color-light-grey);
+        }
+
+/* **************************************** HEADER **************************************** */
+
+#header{
+    background-color:var(--color-site);
+    position: fixed;
+}
+
+/* **************************************** MAIN **************************************** */
+
+main {
+    padding-top: 143px;
+    min-height: calc(100vh - 60px);
+}
+
+
+/* **************************************** TABLE **************************************** */
+
+table img {
+    width: 120px;
+    height: 80px;
+}
+
+/* **************************************** FOOTER**************************************** */
+
+#footer {
+    background-color:var(--color-site);
+    
+    bottom: 0;
+}

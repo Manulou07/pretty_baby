@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} - Nos realisations{% endblock %}
+
+{% block body %}
+
+    <section class="realisations" id="realisations">
+      <h2>TOUTES NOS REALISATIONS</h2>
+   
+      <div class="row" >
+        {% for realisation in realisations|reverse %}
+           
+                <div class="col-4 p-3">
+                    <div class="card" >
+                        <img src="{{ ('images/realisations/' ~ realisation.img) }}" class="card-img-top" alt="photo principale {{ realisation.titre }}" id="cardimg">
+                        <div class="card-body" id="divrealisation">
+                            <h5 class="card-title">{{ realisation.titre }}</h5>
+                            <p class="card-text">{{ realisation.description|u.truncate(150, '...', false) }}</p>
+                        </div>
+                        
+                        <div class="card-body text-center" id="divrealisation">
+                            <a href="{{ path('photo_all', {'id': realisation.id}) }}" class="btnoffres">Voir plus de photos</a>
+                        </div>
+                    </div>
+                </div>
+            
+        {% endfor %}
+      </div>
+      
+    </section>
+{% endblock %}

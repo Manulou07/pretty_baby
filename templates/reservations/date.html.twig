@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %} - Reservations{% endblock %}
+
+{% block body %}
+    <section class="container-fluid" id="reservation">
+        <div class="row">
+            <div class="col-8 offset-4">
+                {% for label, messages in app.flashes %} 
+                    {% for message in messages %}
+                        <div class="flash-{{ label }} bg-{{ label }} text-light p-3 mb-5 rounded text-center col-6">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+               
+            <div class="col-12">
+                <h2>RESERVATION</h2>
+            </div>
+            <div class="col-6 offset-5 p-4">
+                <h5>Adresse -> <b>Choix de la date</b> -> Paiement</h5>
+            </div>
+            <div class="col-5">
+                <div>
+                    <a href="{{ path('home') }}">
+                    <img class="logocontact" src="{{ asset('logo/logo.png') }}" alt="logo du site">
+                    </a>
+                </div>
+            </div>
+            <div class="col-7">
+                {{ form_start(resaForm) }}
+                    <div class="row">
+                        <div class="col-5">
+                                {{ form_row(resaForm.fkIdAdresse, {'label': 'Selectionnez votre adresse:'}) }}
+                        </div>
+                        <div class="col-5 p-3 m-4">
+                            <a href="{{ path('resa_adresse_create') }}" class="btnform">Ou cliquez pour ajouter une adresse</a>
+                        </div>
+                        <div class="col-5">
+                            {{ form_row(resaForm.date_prestation, {'label': 'Date de la prestation:'}) }}
+                        </div>
+                        <div class="col-5">
+                            {{ form_row(resaForm.fkIdForfait, {'label': 'Selectionné votre forfait:'}) }}
+                        </div>
+                        <div class="col-10">
+                            {{ form_row(resaForm.msg_resa, {'label': 'Message:'}) }}
+                        </div>
+                        
+                    </div>
+                    <div class="btnformulaire">
+                        <button class="btn btnform br-4">suivant</button>
+                    </div>
+                {{ form_end(resaForm) }}
+                
+ 
+            </div>
+        </div>
+    </section>
+{% endblock %}

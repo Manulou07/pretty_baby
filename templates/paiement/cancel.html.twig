@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}paiement refusé{% endblock %}
+
+{% block body %}
+    <section class="container-fluid" id="reservation">
+        <div class="row">
+            <div class="col-6 offset-4 p-5">
+                    <h1>PRETTY BABY- paiement refusé</h1>
+            </div>
+
+            <div class="col-5 p-5">
+                <a href="{{ path('home') }}"><img class="logocontact" src="{{ asset('logo/logo.png') }}" alt="logo du site"></a>
+            </div>
+
+            <div class="col-7 p-5">
+                <p>Le paiement a été refusé. Merci de réessayer ultérieurement.</p>
+                <p>Si le problème persiste, merci de contacter un administrateur du site via le <a href="{{ path('contact') }}" class="text-primary">formulaire de contact</a>.</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %} - Reservations{% endblock %}
+
+{% block body %}
+    <section class="container-fluid" id="reservation">
+        <div class="row">
+            <div class="col-12">
+                <h2>RESERVATION</h2>
+                
+            </div>
+
+            <div class="col-6 offset-5 p-4">
+                <p><b>Coordonnées </b>-> Adresse -> Choix de la date ->  Paiement</p>
+            </div>
+            
+            <div class="col-5 pb-5">
+          
+                    <a href="{{ path('home') }}">
+                    <img class="logocontact" src="{{ asset('logo/logo.png') }}" alt="logo du site">
+                    </a>
+                
+            </div>
+            
+            <div class="col-7">
+                
+                {{ form_start(resaFormclient) }} 
+                    <div class="row">
+                        <div class="col-5">
+                            {{ form_row(resaFormclient.nom, {'label': 'Votre Nom:'}) }}
+                        </div>
+                        <div class="col-5">
+                            {{ form_row(resaFormclient.prenom, {'label': 'Votre Prénom:'}) }}
+                        </div>
+                        <div class="col-5">
+                            {{ form_row(resaFormclient.email, {'label': 'Votre Email:'}) }}
+                        </div>
+                        <div class="col-5">
+                            {{ form_row(resaFormclient.password, {'label': 'Votre mot de passe:'}) }}
+                        </div>
+                        <div class="col-5">
+                            {{ form_row(resaFormclient.telephone, {'label': 'Votre numéro de telephone:'}) }}
+                        </div>
+                    </div>
+                    <div class="btnformulaire">
+                        <button class="btn btnform">suivant</button>
+                    </div>
+                {{ form_end(resaFormclient) }} 
+                 
+            </div>
+        </div>
+    </section>
+{% endblock %}

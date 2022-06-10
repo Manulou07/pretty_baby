@@ -1,0 +1,30 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %} - Utilisateurs{% endblock %}
+
+{% block body %}
+    <div class="row text-center">
+        <h1>Gestion Utilisateur</h1>
+    </div>
+
+    {{ form_start(registrationForm) }}
+
+        <div class="row">
+            <div class="col-6 offset-3">
+                {{ form_row(registrationForm.email, {'label': 'Email:'}) }}
+            </div>
+            
+            <div class="col-6 offset-3">
+                {{ form_row(registrationForm.roles, {'label': 'Roles:'}) }}
+            </div>
+        </div>
+       
+
+        <div class="col-6  offset-3 d-flex justify-content-end">
+            <a href="{{ path('registerlist') }}" class="btn btn-danger m-3">Annuler</a>
+            <button class="btn btn-success m-3">Créer ou Modifier</button>
+        </div>
+
+    {{ form_end(registrationForm) }}
+
+{% endblock %}

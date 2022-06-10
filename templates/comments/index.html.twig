@@ -1,0 +1,41 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %} - COMMENTAIRES{% endblock %}
+
+{% block body %}
+
+    <section >
+      <h2>LISTING DES COMMENTAIRES</h2>
+   
+      <table class="table text-center table-hover table-sm">
+        <thead>
+            <tr>
+                <th>PUBLICATION</th>
+                <th>REALISATION</th>
+                <th>COMMENTAIRES</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for comment in comments|reverse %}
+                <tr>
+                    {% if comment.publish  == false %}
+                        <td class="align-middle">Non Publié</td>
+                    {% else %}
+                    <td class="align-middle">Publié</td>
+                    {% endif %}
+                   
+                    <td class="align-middle">{{ comment.fkidrealisations.titre}}</td>
+                    <td class="align-middle">{{ comment.comment }}</td>
+                                        <td class="align-middle">
+                        <a href="{{ path('comment_publish', {'id': comment.id}) }}" class="btn btn-primary m-2">Publier</a>
+                        <a href="{{ path('comment_delete', {'id': comment.id}) }}" class="btn btn-danger m-2" onclick=" return confirm('Etes vous sure?')">Supprimer</i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    
+
+{% endblock %}

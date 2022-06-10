@@ -1,0 +1,188 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} - Accueil{% endblock %}
+
+{% block body %}
+   
+    <section class="container-fluid" id="presentation">
+        <div class="row text-center p-4">
+            <div class="col-12 col-md-12 col-xl-12">
+                <h1>BIENVENUE CHEZ PRETTY BABY</h1> 
+            </div>
+        </div>
+    
+        <div class="row p-5">
+            <div class="col-12 col-md-5 col-xl-5-offset-1 text-center" id="divpres">
+                <p>
+                    Site de réservation de BaBy Shower, notre équipe vous propose un service clé en main pour organiser et réaliser votre baby shower en ile de france.<br>
+                    Possibilité de reserver en ligne pour des packages déja prédéfini, ou bien de réaliser un devis sur mesure en fonction de vos demandes. <br>
+                    Pour cela n'hésitez pas à nous contacter sur notre formulaire de contact.<br>Bonne visite</p>
+            
+            </div>
+            
+            <div class="carousel slide col-12 col-md-6 col-xl-6" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="logo/logo.png" class="imgCaroussel" id="carouselimg" alt="image de baby shower en carousel"/>
+                    </div>
+                    {% for realisation in realisations %} 
+                        <div class="carousel-item">
+                            <img src="{{ ('images/realisations/' ~ realisation.img) }}" class="imgCaroussel d-flex" alt="photo principale {{ realisation.titre }}" id="carouselimg">
+                        
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <section class="container-fluid" id="realisations">
+        <div class="row">
+            <div class="col-12 text-center p-4">
+                <h2>NOS DERNIERES REALISATIONS</h2>
+            </div>
+        </div>
+
+        <div class="row" id="realisations" >
+            {% for realisation in realisations %}
+                {% if loop.index <= 3 %} 
+                    <div class="col-12 col-md-4 col-xl-4 p-3" id="cardrealisation">
+                        <div class="card" id="divrealisation" >
+                            <img src="{{ ('images/realisations/' ~ realisation.img) }}" class="card-img" alt="photo principale {{ realisation.titre }}" >
+                            <div class="card-body" >
+                                <h3 class="card-title">{{ realisation.titre }}</h3>
+                                <p class="card-text">{{ realisation.description|u.truncate(150, '...', false) }}</p>
+                            </div>
+                            <div class="card-body text-center" >
+                                <a href="{{ path('photo_all', {'id': realisation.id}) }}" class="btnoffres p-2">Voir plus de photos</a>
+                                
+                            </div>
+                            {% for comment in comments|reverse %}
+                                {% if comment.publish  == true and comment.fkIdRealisations.id == realisation.id %}
+                                    <div class="col-12 text-center p-4" id="divrealisation">
+                                        <p><i class="fas fa-quote-left"></i> {{ comment.comment|u.truncate(90, '...', false) }} <i class="fas fa-quote-right"></i></p>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}  
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-12 col-xl-12 p-4 text-center">
+            <a href="{{ path('realisations') }}" class="btnoffres p-2 m-3">Voir toutes nos réalisations</a>
+            </div>
+        </div>
+    </section>
+     
+    <section class="container-fluid" id="offres">
+        <div class="row">
+            <div class="col-12 text-center p-4">
+                <h2>NOS OFFRES</h2>
+            </div>
+            {% for forfait in forfaits %}
+                <div class="col-12 col-md-4 col-xl-4 ">
+                    <div class="card text-center m-2" id="divoffres">
+                        <div class="card-body">
+                            <h2 class="card-title">{{ forfait.typeForfait }}</h2>
+                            <h3>{{ forfait.prixForfait }}€</h3>
+                            <p class="card-text">Ce forfait comprend :</p>
+                            {% if forfait.id == 1 %}
+                                <div class="row p-4">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group">Un pack décoration</li>
+                                        <li class="list-group">Un pack souvenir</li>
+                                    </ul>
+                                </div>
+                            {% elseif forfait.id == 2 %}
+                                <div class="row p-4">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group">Un pack décoration</li>
+                                        <li class="list-group">Un pack souvenir</li>
+                                        <li class="list-group">Un pack REPAS</li>
+                                    </ul>
+                                </div>
+                            {% else %}
+                                <div class="row p-4">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group">Un pack décoration</li>
+                                        <li class="list-group">Un pack souvenir</li>
+                                        <li class="list-group">Un pack REPAS</li>
+                                        <li class="list-group">Une scéance Photo</li>
+                                    </ul>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="row p-4">
+                <div class="col-12 text-center">
+                    <a class="btnform p-2 m-3" href="{{ path('home') }}#services">DETAILS DES PACKS</a>
+                </div>
+            </div>  
+        </div>
+    </section>
+    <section class="container-fluid" id="services">
+        <div class="row" >
+            <div class="col-12 text-center p-4">
+                <h2>LES ESSENTIELS POUR UNE BABY SHOWER</h2>
+            </div>
+            <div class="col-12 col-md-4 col-xl-4-p-4">
+                <div class="card  text-center m-2 " id="divservice" >
+                    <img id="icons" class="card-img-top " src="icons/mt-1967-icon02.png" alt="icon de decoration"/>
+                    <div class="card-body">
+                        <h2 class="card-title">Decorations</h2>
+                        <p class="card-text">La première chose à penser est la décoration, celle ci est sous forme de thèmes ou sur mesure en fonction de votre demande.</p>
+                        <p>Notre pack décoration comprends:</p></p>
+                    </div>
+                    <ul class="list-group list-group-flush text-center">
+                        <li class="list-group-item">Ballon</li>
+                        <li class="list-group-item">Gobelet</li>
+                        <li class="list-group-item">Serviette de table</li>
+                        <li class="list-group-item">Accessoires (paillettes, banderole...)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-xl-4-p-4">
+                <div class="card text-center m-2" id="divservice" >
+                    <img id="icons" class="card-img-top" src="icons/mt-1967-icon01.png" alt="icon du menu"/>
+                    <div class="card-body">
+                        <h2 class="card-title">Repas</h2>
+                        <p class="card-text">La deuxième chose à penser est le repas, pour vos inviter nous propons un forfait ou sur mesure en fonction de votre demande.</p>
+                        <p>Notre pack repas comprends:</p></p>
+                    </div>
+                    <ul class="list-group list-group-flush text-center">
+                        <li class="list-group-item">Boisson (soft)</li>
+                        <li class="list-group-item">Gateaux</li>
+                        <li class="list-group-item">Bonbons</li>
+                        <li class="list-group-item">Sablés</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-xl-4-p-4">
+                <div class="card text-center m-2" id="divservice">
+                    <img id="icons" class="card-img-top" src="icons/mt-1967-icon03.png" alt="icon cadeaux"/>
+                    <div class="card-body">
+                        <h2 class="card-title">Cadeaux & Souvenirs</h2>
+                        <p class="card-text">La dernière chose à penser sont les souvenirs, ceux ci sont correspondants au thème choisi ou sur mesure en fonction de votre demande.</p>
+                        <p>Notre pack souvenirs comprends:</p></p>
+                    </div>
+                    <ul class="list-group list-group-flush text-center">
+                        <li class="list-group-item">Souvenir d'une activité</li>
+                        <li class="list-group-item">Petit sablé</li>
+                        <li class="list-group-item">Sachet surprise</li>
+                        <li class="list-group-item">Une photo de groupe</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row p-4">
+                <div class="col-12 text-center">
+                    <a class="btnform p-2 m-3" href="{{ path('resa_adresse') }}">RESERVER</a>
+                </div>
+            </div>  
+        </div>
+    </section>
+      
+{% endblock %}

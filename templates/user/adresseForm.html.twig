@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %} - Adresses{% endblock %}
+
+{% block body %}
+    <section class="container-fluid" id="reservation">
+        <div class="row">
+            
+            <div class="col-12">
+                <h2>Ajouter une adresse</h2>
+                
+            </div>
+
+            <div class="col-5">
+                <div>
+                    <a href="{{ path('home') }}">
+                    <img class="logocontact" src="{{ asset('logo/logo.png') }}" alt="logo du site">
+                    </a>
+                </div>
+            </div>
+            <div class="col-7">
+               
+                {{ form_start(adresseForm) }}
+                
+                    <div class="row">
+                        <div class="col-6 offset-2 p-4">
+                            <h4>Veuillez renseignez votre adresse</h4>
+                        </div>
+                        <div class="col-5">
+                            {{ form_row(adresseForm.numero, {'label': 'Numero de la rue:'}) }}
+                        </div>
+                        <div class="col-5">
+                            {{ form_row(adresseForm.type, {'label': 'Type de voie:'}) }}
+                        </div>
+                        <div class="col-10">
+                            {{ form_row(adresseForm.nomRue, {'label': 'Nom de la rue:'}) }}
+                        </div>
+                        <div class="col-5">
+                            {{ form_row(adresseForm.codepostal, {'label': 'Code Postal:'}) }}
+                        </div>
+                        <div class="col-5">
+                            {{ form_row(adresseForm.ville, {'label': 'Ville:'}) }}
+                        </div>
+                      
+                    </div>  
+                    <div class="row">
+                        <div class="btnformulaire col-1 offset-5">
+                            <a href="{{ path('adresse_index') }}" class="btn btnform">retour</a>
+                        </div>
+                        <div class="btnformulaire col-3">
+                            <button class="btn btnoffres">Valider</button>
+                        </div>
+                    </div>
+                {{ form_end(adresseForm) }} 
+                
+                   
+            </div>
+        </div>
+    </section>
+{% endblock %}

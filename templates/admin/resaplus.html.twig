@@ -1,0 +1,51 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %} - Details resa{% endblock %}
+
+{% block body %}
+<div class="row">
+    <h2>DETAIL DE LA RESERVATION</h2>
+    <div class="col-12">
+        <table class="table text-center table-hover table-sm">
+            <thead>
+                <tr>
+                    <th>DATE DE LA RESERVATION:</th>
+                    <th>DATE DE LA PRESTATION:</th>
+                    <th>FORFAIT:</th>
+                    <th>NOM DU CLIENT:</th>
+                    <th>TELEPHONE:</th>
+                    <th>EMAIL:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="align-middle">{{ reservation.dateResa|date('d/m/Y') }}</td>
+                    <td class="align-middle">{{ reservation.datePrestation.dateDispo|date('d/m/Y') }}</td>
+                    <td class="align-middle">{{ reservation.fkIdForfait.typeForfait }}</td>
+                    <td class="align-middle">{{ reservation.fkIdUser.nom }}  </td>
+                    <td class="align-middle">{{ reservation.fkIdUser.telephone }}</td>
+                    <td class="align-middle">{{ reservation.fkIdUser.email }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <h4>MESSAGE</h4>
+    <div class="col-6">
+        {{ reservation.msgResa }}
+    </div>
+</div>
+     
+<div class="row">
+    
+    <div class="col-12 d-flex justify-content-end">
+        <a href="{{ path('resa_list') }}" class="btn btn-primary m-2">Retour</a>
+    </div>
+</div>
+    
+
+
+
+{% endblock %}
