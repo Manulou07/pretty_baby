@@ -16,14 +16,14 @@
         {% block stylesheets %}{% endblock %}
     
     </head>
-    <header >
+    <header class="container-fluid">
         <nav class="row" id="nav">
             <div class=" col-2 col-md-2 col-xl-2" id="logomenu">
                 <a href="{{ path('home') }}" >
-                    <img class="logo p-5" src="{{ asset('logo/logo.png') }}" alt="logo du site">
+                    <img class="logo p-2" src="{{ asset('logo/logo.png') }}" alt="logo du site">
                 </a>
             </div>
-            <div class="col-6 col-md-4 col-lg-10 col-xl-10 p-5" id="menu">
+            <div class="col-10 col-md-10 col-lg-10 col-xl-10 p-2" id="menu">
                 <a class="btn" href="{{ path('home') }}#realisations">NOS REALISATIONS</a>
                 <a class="btn" href="{{ path('home') }}#offres">NOS OFFRES</a>
                 <a class="btn" href="{{ path('contact') }}">NOUS CONTACTER</a>
@@ -37,7 +37,8 @@
         </nav>
     </header>
 
-    <main>
+    <main >
+        {% include 'shared/cookies.html.twig' %}
         {% include 'shared/flash.html.twig' %}
         {% block body %}{% endblock %}
     </main>
@@ -48,10 +49,10 @@
                 <div class="col-12 col-md-5 col-lg-5 col-xl-5" id= "apropos">
                     <h2>A propos</h2>
                     <a href="ml.html">mentions legales</a></br>
-                    <a href="dp.html">données personnelles</a></br>
+                    <a href="dp.html">Politique de confidentialités</a></br>
                     <a href="cookies.html">cookies</a></br>
                     {% if is_granted ('ROLE_ADMIN') %}
-                    <a href="{{ path('admin') }}">admin</a>
+                    <a href="{{ path('admin') }}" target="_blank">admin</a>
                     {% endif %}
                 </div>
                 <div class="col-12 col-md-2 col-lg-2 col-xl-2">
@@ -60,8 +61,8 @@
                 <div class="col-12 col-md-5 col-lg-5 col-xl-5">
                     <h2>
                         suivez nous:
-                        <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
                     </h2>
                 </div>
             </div>

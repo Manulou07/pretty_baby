@@ -5,7 +5,7 @@
 {% block body %}
     <section class="container-fluid" id="contact">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 text-center">
                 <h2>CONTACT</h2>
             </div>
             {% for label, messages in app.flashes %} 
@@ -17,37 +17,37 @@
                     <div class="col-3"></div>
                 {% endfor %}
             {% endfor %}
-            <div class="col-5 p-5">
+            <div class="col-12 col-md-5 col-lg-5 col-xl-5 p-5">
                 <div>
                     <a href="{{ path('home') }}">
                     <img class="logocontact" src="{{ asset('logo/logo.png') }}" alt="logo du site">
                     </a>
                 </div>
             </div>
-            <div class="col-7">
+            <div class="col-12 col-md-12 col-lg-7 col-xl-7">
                 {{ form_start(contactForm) }}
                     <div class="row my-5">
-                        <div class="col-10 mb-3">
+                        <div class="col-12 col-md-12 col-lg-10 col-xl-10 mb-3">
                             {{ form_row(contactForm.objet, {label: 'Objet de votre demande:'}) }}
                         </div>
-                        <div class="col-5">
+                        <div class="col-12 col-md-12 col-lg-5 col-xl-5">
                             {{ form_row(contactForm.nom, {label: 'Nom:'}) }}
                         </div>
-                        <div class="col-5 mb-3">
+                        <div class="col-12 col-md-12 col-lg-5 col-xl-5 mb-3">
                             {{ form_row(contactForm.prenom, {label: 'Prénom:'}) }}
                         </div>
-                        <div class="col-5 mb-3">
+                        <div class="col-12 col-md-12 col-lg-5 col-xl-5 mb-3">
                             {{ form_row(contactForm.email, {label: 'Email:'}) }}
                         </div>
-                        <div class="col-5 mb-3">
+                        <div class="col-12 col-md-12 col-lg-5 col-xl-5 mb-3">
                             {{ form_row(contactForm.telephone, {label: 'Téléphone:'}) }}
                         </div>
                         
-                        <div class="col-10 mb-3">
+                        <div class="col-12 col-md-12 col-lg-10 col-xl-10 mb-3">
                             {{ form_row(contactForm.message, {label: 'Votre message:'}) }}
                         </div>
                                         
-                        <div class="col-10 text-end">
+                        <div class="col-12 col-md12 col-lg-10 col-xl-10 text-end">
                             <input type="submit" class="btn btn-secondary" value="Envoyer">
                         </div>
                     </div>

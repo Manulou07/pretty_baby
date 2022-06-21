@@ -5,20 +5,18 @@
 {% block body %}
 
     <section class="row" id="realisations">
-        <div class="col-12">
+        <div class="col-12 text-center">
             <h2>{{ realisation.titre }}</h2>
         </div>
-        <div class="col-4 p-5">
-            <img src="{{ asset('images/realisations/' ~ realisation.img) }}" alt="photo realisations" id="cardimg">       
-        </div>
+        
         {% for image in images %}
-            <div class="col-4 p-5">
+            <div class="col-12 col-md-6 col-lg-4 col-xl-4 p-3 text-center">
                 <img src="{{ asset('images/realisations/' ~ image.nameimg) }}" alt="photo realisations" id="cardimg">       
             </div>
         {% endfor %}
         <div class="row" >
             <div class="col-12 p-4 text-center">
-            <a href="{{ path('realisations') }}" class="btnoffres">Retour</a>
+            <a href="{{ path('realisations') }}" class="btnoffres p-2 m-3">Retour</a>
             </div>
         </div>
 

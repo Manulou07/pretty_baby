@@ -16,41 +16,43 @@
                 {% endfor %}
             </div>
                
-            <div class="col-12">
+            <div class="col-12 text-center">
                 <h2>RESERVATION</h2>
             </div>
-            <div class="col-6 offset-5 p-4">
-                <h5>Adresse -> <b>Choix de la date</b> -> Paiement</h5>
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12 col-xl-12 text-center p-4">
+                    <h5>Adresse -> <b>Choix de la date</b> -> Paiement</h5>
+                </div>
             </div>
-            <div class="col-5">
+            <div class="col-12 col-md-5 col-lg-5 col-xl-5">
                 <div>
                     <a href="{{ path('home') }}">
                     <img class="logocontact" src="{{ asset('logo/logo.png') }}" alt="logo du site">
                     </a>
                 </div>
             </div>
-            <div class="col-7">
+            <div class="col-12 col-md-12 col-lg-7 col-xl-7">
                 {{ form_start(resaForm) }}
                     <div class="row">
-                        <div class="col-5">
+                        <div class="col-12 col-md-12 col-lg-5 col-xl-5">
                                 {{ form_row(resaForm.fkIdAdresse, {'label': 'Selectionnez votre adresse:'}) }}
                         </div>
-                        <div class="col-5 p-3 m-4">
-                            <a href="{{ path('resa_adresse_create') }}" class="btnform">Ou cliquez pour ajouter une adresse</a>
+                        <div class="col-12 col-md-12 col-lg-5 col-xl-5 p-3 m-4">
+                            <a href="{{ path('resa_adresse_create') }}" class="btnform p-2 m-3">Ou cliquez pour ajouter une adresse</a>
                         </div>
-                        <div class="col-5">
+                        <div class="col-12 col-md-12 col-lg-5 col-xl-5">
                             {{ form_row(resaForm.date_prestation, {'label': 'Date de la prestation:'}) }}
                         </div>
-                        <div class="col-5">
+                        <div class="col-12 col-md-12 col-lg-5 col-xl-5">
                             {{ form_row(resaForm.fkIdForfait, {'label': 'Selectionné votre forfait:'}) }}
                         </div>
-                        <div class="col-10">
+                        <div class="col-12 col-md-12 col-lg-10 col-xl-10">
                             {{ form_row(resaForm.msg_resa, {'label': 'Message:'}) }}
                         </div>
                         
                     </div>
                     <div class="btnformulaire">
-                        <button class="btn btnform br-4">suivant</button>
+                        <button class="btn btnform p-2 m-3">suivant</button>
                     </div>
                 {{ form_end(resaForm) }}
                 

@@ -3,8 +3,9 @@
 {% block title %} - Accueil{% endblock %}
 
 {% block body %}
+
    
-    <section class="container-fluid" id="presentation">
+    <section class=" container-fluid p-5" id="presentation">
         <div class="row text-center p-4">
             <div class="col-12 col-md-12 col-xl-12">
                 <h1>BIENVENUE CHEZ PRETTY BABY</h1> 
@@ -36,7 +37,7 @@
         </div>
     </section>
  
-    <section class="container-fluid" id="realisations">
+    <section class=" container-fluid p-5" id="realisations">
         <div class="row">
             <div class="col-12 text-center p-4">
                 <h2>NOS DERNIERES REALISATIONS</h2>
@@ -76,7 +77,7 @@
         </div>
     </section>
      
-    <section class="container-fluid" id="offres">
+    <section class=" container-fluid p-5" id="offres">
         <div class="row">
             <div class="col-12 text-center p-4">
                 <h2>NOS OFFRES</h2>
@@ -85,8 +86,8 @@
                 <div class="col-12 col-md-4 col-xl-4 ">
                     <div class="card text-center m-2" id="divoffres">
                         <div class="card-body">
-                            <h2 class="card-title">{{ forfait.typeForfait }}</h2>
-                            <h3>{{ forfait.prixForfait }}€</h3>
+                            <h3 class="card-title">{{ forfait.typeForfait }}</h3>
+                            <h4>{{ forfait.prixForfait }}€</h4>
                             <p class="card-text">Ce forfait comprend :</p>
                             {% if forfait.id == 1 %}
                                 <div class="row p-4">
@@ -124,7 +125,7 @@
             </div>  
         </div>
     </section>
-    <section class="container-fluid" id="services">
+    <section class=" container-fluid p-5" id="services">
         <div class="row" >
             <div class="col-12 text-center p-4">
                 <h2>LES ESSENTIELS POUR UNE BABY SHOWER</h2>
@@ -135,7 +136,7 @@
                     <div class="card-body">
                         <h2 class="card-title">Decorations</h2>
                         <p class="card-text">La première chose à penser est la décoration, celle ci est sous forme de thèmes ou sur mesure en fonction de votre demande.</p>
-                        <p>Notre pack décoration comprends:</p></p>
+                        <p>Notre pack décoration comprend:</p></p>
                     </div>
                     <ul class="list-group list-group-flush text-center">
                         <li class="list-group-item">Ballon</li>
@@ -150,8 +151,8 @@
                     <img id="icons" class="card-img-top" src="icons/mt-1967-icon01.png" alt="icon du menu"/>
                     <div class="card-body">
                         <h2 class="card-title">Repas</h2>
-                        <p class="card-text">La deuxième chose à penser est le repas, pour vos inviter nous propons un forfait ou sur mesure en fonction de votre demande.</p>
-                        <p>Notre pack repas comprends:</p></p>
+                        <p class="card-text">La deuxième chose à penser est le repas, pour vos invité(e)s nous proposons un forfait ou sur mesure en fonction de votre demande.</p>
+                        <p>Notre pack repas comprend:</p></p>
                     </div>
                     <ul class="list-group list-group-flush text-center">
                         <li class="list-group-item">Boisson (soft)</li>
@@ -166,8 +167,8 @@
                     <img id="icons" class="card-img-top" src="icons/mt-1967-icon03.png" alt="icon cadeaux"/>
                     <div class="card-body">
                         <h2 class="card-title">Cadeaux & Souvenirs</h2>
-                        <p class="card-text">La dernière chose à penser sont les souvenirs, ceux ci sont correspondants au thème choisi ou sur mesure en fonction de votre demande.</p>
-                        <p>Notre pack souvenirs comprends:</p></p>
+                        <p class="card-text">La dernière chose à penser sont les souvenirs, ceux ci correspondent au thème choisi ou sont sur mesure en fonction de votre demande.</p>
+                        <p>Notre pack souvenirs comprend:</p></p>
                     </div>
                     <ul class="list-group list-group-flush text-center">
                         <li class="list-group-item">Souvenir d'une activité</li>

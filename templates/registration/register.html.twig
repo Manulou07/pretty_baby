@@ -21,33 +21,33 @@
                     <div class="col-3"></div>
                 {% endfor %}
         {% endfor %}
-            <div class="col-5 p-5">
+            <div class="col-12 col-md-5 col-lg-5 col-xl-5 p-5">
                 <div>
                     <a href="{{ path('home') }}">
                     <img class="logocontact" src="{{ asset('logo/logo.png') }}" alt="logo du site">
                     </a>
                 </div>
             </div>
-            <div class="col-7">
+            <div class="col-12 col-md-12 col-lg-7 col-xl-7">
                     {{ form_start(registrationForm) }}
                         <div class="row">
                             <div class="col-12">
                                 <p>Suite à votre inscription vous allez recevoir un mail de confirmation.</p>
                                 <p>Pensez à bien confirmer votre adresse mail afin de pouvoir vous connecter</p>
                             </div> 
-                            <div class="col-5">
+                            <div class="col-12 col-md-12 col-lg-5 col-xl-5">
                                 {{ form_row(registrationForm.nom, {label: 'Nom:'})  }}
                             </div>
-                            <div class="col-5">
+                            <div class="col-12 col-md-12 col-lg-5 col-xl-5">
                                 {{ form_row(registrationForm.prenom, {label: 'Prenom:'}) }}
                             </div> 
-                            <div class="col-5">
+                            <div class="col-12 col-md-12 col-lg-5 col-xl-5">
                                 {{ form_row(registrationForm.telephone, {label: 'Téléphone:'}) }}
                             </div>
-                            <div class="col-5">
+                            <div class="col-12 col-md-12 col-lg-5 col-xl-5">
                                 {{ form_row(registrationForm.email, {label: 'Email:'})  }}
                             </div>
-                            <div class="col-5">
+                            <div class="col-12 col-md-12 col-lg-5 col-xl-5">
                                 {{ form_row(registrationForm.plainPassword, {label: 'Mot de passe:'}) }}
                             </div>
                            
